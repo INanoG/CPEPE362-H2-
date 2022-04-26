@@ -68,6 +68,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "get_it",
+      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/get_it-7.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/lints-1.0.1",
       "packageUri": "lib/",
@@ -94,6 +100,24 @@
     {
       "name": "path",
       "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "provider",
+      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/provider-3.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
+    },
+    {
+      "name": "provider_architecture",
+      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/provider_architecture-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.1"
+    },
+    {
+      "name": "responsive_builder",
+      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/responsive_builder-0.4.2",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -158,7 +182,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-04-26T07:44:41.528464Z",
+  "generated": "2022-04-26T08:27:18.711702Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }
