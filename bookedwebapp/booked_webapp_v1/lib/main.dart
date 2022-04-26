@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
             textTheme: Theme.of(context).textTheme.apply(
                   fontFamily: 'Poppins',
                 )),
-        home: LoginPage());
+        home: const LoginPage());
   }
 }
 
@@ -26,7 +26,7 @@ class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 209, 234, 255),
+      backgroundColor: const Color.fromARGB(255, 209, 234, 255),
       body: ListView(
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width / 8),
@@ -44,7 +44,7 @@ class Menu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(vertical: 30),
+      padding: const EdgeInsets.symmetric(vertical: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
@@ -56,7 +56,7 @@ class Menu extends StatelessWidget {
 
   Widget _menuItem({required String title, bool isActive = false}) {
     return Padding(
-      padding: EdgeInsets.only(right: 75),
+      padding: const EdgeInsets.only(right: 75),
       child: Column(
         children: [
           Text(
