@@ -35,7 +35,7 @@ class Course_Details extends StatelessWidget {
                     fontSize: titleSize),
                 textAlign: textAlignment,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 30,
               ),
               Text(
