@@ -24,7 +24,7 @@ class LayoutTemplate extends StatelessWidget {
         body: Centered_View(
           child: Column(
             children: <Widget>[
-              Navigation_Bar(),
+              const Navigation_Bar(),
               Expanded(
                 child: Navigator(
                   key: locator<NavigationService>().navigatorKey,
