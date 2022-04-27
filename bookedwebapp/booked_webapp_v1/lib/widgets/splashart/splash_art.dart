@@ -19,8 +19,11 @@ class Splash_Page extends StatelessWidget {
       body: Container(
         color: Colors.white,
         alignment: Alignment.center,
-        child: const Icon(Icons.book,
-            color: Color.fromARGB(255, 18, 94, 62), size: 100),
+        child: Image.asset(
+          'assets/booked_logo.jpg',
+          height: 300,
+          width: 300,
+        ),
       ),
     );
   }
