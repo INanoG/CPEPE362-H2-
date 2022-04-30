@@ -1,3 +1,5 @@
+import 'package:booked_webapp_v1/views/login/login_view.dart';
+import 'package:booked_webapp_v1/views/register/register_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:booked_webapp_v1/routing/route_names.dart';
@@ -13,8 +15,12 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(AboutView());
     case ForumRoute:
       return _getPageRoute(ForumView());
+    case LoginRoute:
+      return _getPageRoute(LoginView());
+    case RegisterRoute:
+      return _getPageRoute(RegisterView());
     default:
-      return _getPageRoute(HomeView());
+      return _getPageRoute(const HomeView());
   }
 }
 

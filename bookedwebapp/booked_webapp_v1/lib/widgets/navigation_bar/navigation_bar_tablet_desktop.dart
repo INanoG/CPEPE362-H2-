@@ -18,11 +18,19 @@ class NavigationBarTabletDesktop extends StatelessWidget {
           Row(
             mainAxisSize: MainAxisSize.min,
             children: const <Widget>[
-              NavBarItem('Forum', ForumRoute),
+              NavBarItem('HOME', HomeRoute),
               SizedBox(
                 width: 60,
               ),
-              NavBarItem('About', AboutRoute),
+              NavBarItem('LOG IN', LoginRoute),
+              SizedBox(
+                width: 60,
+              ),
+              NavBarItem('SIGN UP', RegisterRoute),
+              SizedBox(
+                width: 60,
+              ),
+              NavBarItem('ABOUT', AboutRoute),
             ],
           )
         ],
