@@ -16,18 +16,23 @@ class NavBarItem extends StatelessWidget {
         locator<NavigationService>().navigateTo(navigationPath);
       },
       child: Container(
-        decoration: const BoxDecoration(
+        width: 80,
+        height: 30,
+        decoration: BoxDecoration(
           color: Colors.white,
-          boxShadow: [
+          borderRadius: BorderRadius.circular(5),
+          boxShadow: const [
             BoxShadow(
               color: Color.fromARGB(255, 154, 235, 157),
+              blurRadius: 1,
               offset: Offset(0, 3),
             ),
           ],
         ),
         child: Text(
           title,
-          style: const TextStyle(fontSize: 18),
+          textAlign: TextAlign.center,
+          style: const TextStyle(fontSize: 15),
         ),
       ),
     );
