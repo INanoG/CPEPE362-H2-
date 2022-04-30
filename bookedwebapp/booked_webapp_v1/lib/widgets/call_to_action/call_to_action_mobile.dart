@@ -12,7 +12,7 @@ class CallToActionMobile extends StatelessWidget {
       alignment: Alignment.center,
       child: Text(
         title,
-        style: TextStyle(
+        style: const TextStyle(
             fontSize: 18, fontWeight: FontWeight.w800, color: Colors.white),
       ),
       decoration: BoxDecoration(
