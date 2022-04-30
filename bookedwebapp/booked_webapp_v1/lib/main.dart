@@ -22,6 +22,6 @@ class MyApp extends StatelessWidget {
         ),
         //home: const LayoutTemplate()
         //splashart must run first then after 3 seconds it will go to the layouttemplate for screensize checking
-        home: Splash_Page(goToPage: const LayoutTemplate(), duration: 4));
+        home: Splash_Page(goToPage: const LayoutTemplate(), duration: 5));
   }
 }
