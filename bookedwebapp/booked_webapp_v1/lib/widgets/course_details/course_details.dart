@@ -28,7 +28,7 @@ class Course_Details extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'Books that get you Hooked!',
+                'Books That Get You Hooked!',
                 style: TextStyle(
                     fontWeight: FontWeight.w600,
                     height: 1.2,
