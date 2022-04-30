@@ -14,7 +14,7 @@ class Course_Details extends StatelessWidget {
                 : TextAlign.center;
         double titleSize =
             stringInformation.deviceScreenType == DeviceScreenType.mobile
-                ? 50
+                ? 45
                 : 80;
         double descriptionSize =
             stringInformation.deviceScreenType == DeviceScreenType.mobile
@@ -28,10 +28,10 @@ class Course_Details extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'BOOKED',
+                'Books that get you Hooked!',
                 style: TextStyle(
-                    fontWeight: FontWeight.w800,
-                    height: 0.9,
+                    fontWeight: FontWeight.w600,
+                    height: 1.2,
                     fontSize: titleSize),
                 textAlign: textAlignment,
               ),
@@ -39,7 +39,7 @@ class Course_Details extends StatelessWidget {
                 height: 30,
               ),
               Text(
-                'Find Books the will get you Hooked.',
+                'Find recommendations. Read reviews. Share your opinions and personal favorites. Connect with fellow booklovers.',
                 style: TextStyle(fontSize: descriptionSize, height: 1.7),
                 textAlign: textAlignment,
               )
