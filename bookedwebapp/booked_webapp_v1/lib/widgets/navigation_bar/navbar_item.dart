@@ -15,9 +15,20 @@ class NavBarItem extends StatelessWidget {
         // services should only be used from a viewmodel
         locator<NavigationService>().navigateTo(navigationPath);
       },
-      child: Text(
-        title,
-        style: const TextStyle(fontSize: 18),
+      child: Container(
+        decoration: const BoxDecoration(
+          color: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Color.fromARGB(255, 154, 235, 157),
+              offset: Offset(0, 3),
+            ),
+          ],
+        ),
+        child: Text(
+          title,
+          style: const TextStyle(fontSize: 18),
+        ),
       ),
     );
   }
