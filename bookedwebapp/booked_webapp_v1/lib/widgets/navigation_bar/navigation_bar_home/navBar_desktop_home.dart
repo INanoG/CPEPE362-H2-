@@ -4,8 +4,8 @@ import 'package:booked_webapp_v1/widgets/navigation_bar/navigation_bar_main/navb
 import 'package:booked_webapp_v1/widgets/navigation_bar/navigation_bar_main/navbar_logo.dart';
 import 'package:booked_webapp_v1/widgets/navigation_bar/navigation_bar_main/navigation_bar.dart';
 
-class NavigationBarTabletDesktop extends StatelessWidget {
-  const NavigationBarTabletDesktop({Key? key}) : super(key: key);
+class NavigationBarTabletDesktopHome extends StatelessWidget {
+  const NavigationBarTabletDesktopHome({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

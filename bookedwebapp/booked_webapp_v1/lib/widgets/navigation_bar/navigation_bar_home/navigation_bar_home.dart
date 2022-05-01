@@ -1,3 +1,5 @@
+import 'package:booked_webapp_v1/widgets/navigation_bar/navigation_bar_home/navBar_desktop_home.dart';
+import 'package:booked_webapp_v1/widgets/navigation_bar/navigation_bar_home/navBar_mobile_home.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:booked_webapp_v1/widgets/navigation_bar/navigation_bar_main/navbar_mobile.dart';
@@ -9,8 +11,8 @@ class Navigation_Bar_Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
-      mobile: const NavigationBarMobile(),
-      tablet: const NavigationBarTabletDesktop(),
+      mobile: const NavigationBarMobileHome(),
+      tablet: const NavigationBarTabletDesktopHome(),
     );
   }
 }
