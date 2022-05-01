@@ -29,7 +29,7 @@ class LayoutTemplateHome extends StatelessWidget {
                 child: Navigator(
                   key: locator<NavigationService>().navigatorKey,
                   onGenerateRoute: generateRoute,
-                  initialRoute: WelcomeRoute,
+                  initialRoute: HomeRoute,
                 ),
               ),
             ],
