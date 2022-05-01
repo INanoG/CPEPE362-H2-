@@ -20,15 +20,15 @@ class NavigationBarTabletDesktop extends StatelessWidget {
             children: const <Widget>[
               NavBarItem('Home', HomeRoute),
               SizedBox(
-                width: 40,
+                width: 20,
               ),
               NavBarItem('Log In', LoginRoute),
               SizedBox(
-                width: 40,
+                width: 20,
               ),
               NavBarItem('Sign Up', RegisterRoute),
               SizedBox(
-                width: 40,
+                width: 20,
               ),
               NavBarItem('About', AboutRoute),
             ],
