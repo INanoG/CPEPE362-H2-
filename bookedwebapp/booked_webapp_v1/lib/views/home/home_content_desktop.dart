@@ -7,15 +7,27 @@ class HomeContentDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: const <Widget>[
         Course_Details(),
+        SizedBox(
+          height: 50,
+        ),
+        Call_to_Action('Get Started'),
         Expanded(
-          child: Center(
-            child: Call_to_Action('Get Started'),
-          ),
+          child: Center(),
         ),
       ],
     );
   }
 }
+
+/*
+Expanded(
+          child: Center(
+            child: Call_to_Action('Get Started'),
+          ),
+        ),
+*/
