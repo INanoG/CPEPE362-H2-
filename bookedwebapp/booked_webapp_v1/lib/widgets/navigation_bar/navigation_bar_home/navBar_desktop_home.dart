@@ -22,7 +22,7 @@ class NavigationBarTabletDesktopHome extends StatelessWidget {
               SizedBox(
                 width: 20,
               ),
-              NavBarItem('Recommendations', RecommendationRoute),
+              NavBarItem('Features', FeatureRoute),
               SizedBox(
                 width: 20,
               ),

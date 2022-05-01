@@ -1,4 +1,6 @@
+import 'package:booked_webapp_v1/widgets/navigation_bar/navigation_bar_home/navigation_bar_home.dart';
 import 'package:booked_webapp_v1/widgets/navigation_bar/navigation_bar_main/navigation_bar.dart';
+import 'package:booked_webapp_v1/widgets/navigation_drawer/navDrawer_home/navDrawer.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 import 'package:booked_webapp_v1/locator.dart';
@@ -18,13 +20,13 @@ class LayoutTemplateHome extends StatelessWidget {
     return ResponsiveBuilder(
       builder: (context, sizingInformation) => Scaffold(
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
-            ? NavigationDrawer()
+            ? NavigationDrawerHome()
             : null,
         backgroundColor: Colors.white,
         body: Centered_View(
           child: Column(
             children: <Widget>[
-              const Navigation_Bar(),
+              const Navigation_Bar_Home(),
               Expanded(
                 child: Navigator(
                   key: locator<NavigationService>().navigatorKey,

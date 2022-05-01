@@ -5,4 +5,4 @@ const String LoginRoute = 'login';
 const String RegisterRoute = 'register';
 const String ProfileRoute = 'profile';
 const String WelcomeRoute = 'welcome';
-const String RecommendationRoute = 'recommendation';
+const String FeatureRoute = 'feature';

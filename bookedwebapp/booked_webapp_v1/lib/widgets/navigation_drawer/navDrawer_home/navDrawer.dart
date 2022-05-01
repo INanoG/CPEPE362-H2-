@@ -18,7 +18,7 @@ class NavigationDrawerHome extends StatelessWidget {
           NavigationDrawerHeaderHome(),
           //Bonus: Combine the ui for this widget with the navbaritem and make it responsive
           DrawerItem('Profile', Icons.person, ProfileRoute),
-          DrawerItem('Recommendation', Icons.star, RecommendationRoute),
+          DrawerItem('Features', Icons.star, FeatureRoute),
           DrawerItem('Forum', Icons.forum, ForumRoute),
           DrawerItem('About', Icons.help, AboutRoute),
         ],

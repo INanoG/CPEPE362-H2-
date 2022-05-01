@@ -1,6 +1,6 @@
 import 'package:booked_webapp_v1/views/home/home_view.dart';
 import 'package:booked_webapp_v1/views/login/login_view.dart';
-import 'package:booked_webapp_v1/views/recommendation/recommendation_view.dart';
+import 'package:booked_webapp_v1/views/feature/feature_view.dart';
 import 'package:booked_webapp_v1/views/register/register_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -23,8 +23,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return _getPageRoute(RegisterView());
     case HomeRoute:
       return _getPageRoute(HomeView());
-    case RecommendationRoute:
-      return _getPageRoute(RecommendationView());
+    case FeatureRoute:
+      return _getPageRoute(FeatureView());
     default:
       return _getPageRoute(const WelcomeView());
   }
