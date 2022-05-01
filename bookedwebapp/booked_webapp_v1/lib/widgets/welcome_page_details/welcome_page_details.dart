@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
 
-class Course_Details extends StatelessWidget {
-  const Course_Details({Key? key}) : super(key: key);
+class Welcome_Details extends StatelessWidget {
+  const Welcome_Details({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
