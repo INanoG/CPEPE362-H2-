@@ -10,8 +10,8 @@ import 'package:booked_webapp_v1/widgets/centered_view/centered_view.dart';
 import 'package:booked_webapp_v1/widgets/navigation_bar/navigation_bar.dart';
 import 'package:booked_webapp_v1/widgets/navigation_drawer/navigation_drawer.dart';
 
-class LayoutTemplate extends StatelessWidget {
-  const LayoutTemplate({Key? key}) : super(key: key);
+class LayoutTemplateMain extends StatelessWidget {
+  const LayoutTemplateMain({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
