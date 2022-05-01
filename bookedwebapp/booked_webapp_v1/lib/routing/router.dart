@@ -5,12 +5,12 @@ import 'package:flutter/widgets.dart';
 import 'package:booked_webapp_v1/routing/route_names.dart';
 import 'package:booked_webapp_v1/views/about/about_view.dart';
 import 'package:booked_webapp_v1/views/forum/forum_view.dart';
-import 'package:booked_webapp_v1/views/home/home_view.dart';
+import 'package:booked_webapp_v1/views/welcome_page/welcome_page_view.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
-    case HomeRoute:
-      return _getPageRoute(HomeView());
+    case WelcomeRoute:
+      return _getPageRoute(WelcomeView());
     case AboutRoute:
       return _getPageRoute(AboutView());
     case ForumRoute:
@@ -20,7 +20,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case RegisterRoute:
       return _getPageRoute(RegisterView());
     default:
-      return _getPageRoute(const HomeView());
+      return _getPageRoute(const WelcomeView());
   }
 }
 
