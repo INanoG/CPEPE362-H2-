@@ -98,15 +98,7 @@ class LoginView extends StatelessWidget {
                         width: 250,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
-                          gradient: const LinearGradient(
-                            begin: Alignment.centerLeft,
-                            end: Alignment.centerRight,
-                            colors: [
-                              Color.fromARGB(255, 78, 189, 135),
-                              Color.fromARGB(255, 86, 214, 152),
-                              Color.fromARGB(255, 78, 189, 135),
-                            ],
-                          ),
+                          color: const Color.fromARGB(255, 55, 105, 78),
                         ),
                         child: const Padding(
                           padding: EdgeInsets.all(12.0),
@@ -122,9 +114,6 @@ class LoginView extends StatelessWidget {
                     ),
                   ],
                 ),
-              ),
-              const SizedBox(
-                height: 20,
               ),
             ],
           ),
