@@ -17,6 +17,13 @@ class CallToActionTabletDesktop extends StatelessWidget {
       decoration: BoxDecoration(
         color: primaryColor,
         borderRadius: BorderRadius.circular(5),
+        boxShadow: const [
+          BoxShadow(
+            color: Color.fromARGB(255, 55, 83, 56),
+            blurRadius: 1,
+            offset: Offset(0, 3),
+          ),
+        ],
       ),
     );
   }
