@@ -17,7 +17,7 @@ class NavigationDrawer extends StatelessWidget {
         children: const <Widget>[
           NavigationDrawerHeader(),
           //Bonus: Combine the ui for this widget with the navbaritem and make it responsive
-          DrawerItem('HOME', Icons.home, HomeRoute),
+          DrawerItem('HOME', Icons.home, WelcomeRoute),
           DrawerItem('LOG IN', Icons.person, LoginRoute),
           DrawerItem('SIGN IN', Icons.person_add_alt_rounded, RegisterRoute),
           DrawerItem('About', Icons.help, AboutRoute),
