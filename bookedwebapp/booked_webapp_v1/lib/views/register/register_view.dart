@@ -27,7 +27,7 @@ class RegisterView extends StatelessWidget {
                 height: 480,
                 width: 395,
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 224, 253, 203),
+                  color: const Color.fromARGB(255, 235, 229, 224),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
@@ -41,7 +41,7 @@ class RegisterView extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 30,
                         fontWeight: FontWeight.w600,
-                        color: Color.fromARGB(255, 36, 56, 21),
+                        color: Color.fromARGB(255, 68, 53, 40),
                       ),
                     ),
                     const SizedBox(
@@ -51,7 +51,7 @@ class RegisterView extends StatelessWidget {
                       'Let us get you signed up',
                       style: TextStyle(
                         fontSize: 15,
-                        color: Color.fromARGB(255, 36, 56, 21),
+                        color: Color.fromARGB(255, 68, 53, 40),
                       ),
                     ),
                     const SizedBox(
@@ -106,7 +106,7 @@ class RegisterView extends StatelessWidget {
                         width: 250,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
-                          color: const Color.fromRGBO(55, 105, 78, 1),
+                          color: const Color.fromARGB(255, 68, 53, 40),
                         ),
                         child: const Padding(
                           padding: EdgeInsets.all(12.0),
