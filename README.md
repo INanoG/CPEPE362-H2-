@@ -2,6 +2,8 @@
 
 A Software Developent 2 project for Educational Purposes.
 
+![Welcome](https://github.com/INanoG/CPEPE362-H2/blob/main/welcomepage.png?raw=true)
+
 ## Members:
 
 > Sheena Marie Destura
