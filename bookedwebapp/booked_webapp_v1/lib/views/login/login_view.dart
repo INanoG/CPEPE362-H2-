@@ -6,12 +6,13 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: Colors.transparent,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -26,7 +27,7 @@ class LoginView extends StatelessWidget {
                 height: 480,
                 width: 395,
                 decoration: BoxDecoration(
-                  color: Color.fromARGB(255, 224, 253, 203),
+                  color: const Color.fromARGB(255, 224, 253, 203),
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Column(
