@@ -2,7 +2,6 @@ import 'package:booked_webapp_v1/locator.dart';
 import 'package:booked_webapp_v1/routing/route_names.dart';
 import 'package:booked_webapp_v1/services/navigation_service.dart';
 import 'package:flutter/material.dart';
-import 'package:booked_webapp_v1/constants/app_colors.dart';
 
 class NavigationDrawerHeader extends StatelessWidget {
   const NavigationDrawerHeader({Key? key}) : super(key: key);
@@ -17,7 +16,7 @@ class NavigationDrawerHeader extends StatelessWidget {
       },
       child: Container(
         height: 150,
-        color: primaryColor,
+        color: const Color.fromARGB(255, 224, 171, 129),
         alignment: Alignment.center,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -27,12 +26,12 @@ class NavigationDrawerHeader extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w800,
-                color: Colors.white,
+                color: Color.fromARGB(255, 68, 53, 40),
               ),
             ),
             Text(
               'TAP TO JOIN',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Color.fromARGB(255, 68, 53, 40)),
             )
           ],
         ),

@@ -33,9 +33,11 @@ class Welcome_Details extends StatelessWidget {
               Text(
                 'Books That Get You Hooked!',
                 style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    height: 1.2,
-                    fontSize: titleSize),
+                  fontWeight: FontWeight.w600,
+                  height: 1.2,
+                  fontSize: titleSize,
+                  color: const Color.fromARGB(255, 68, 53, 40),
+                ),
                 textAlign: textAlignment,
               ),
               const SizedBox(
@@ -43,7 +45,10 @@ class Welcome_Details extends StatelessWidget {
               ),
               Text(
                 'Find recommendations. Read reviews. Share your opinions and personal favorites. Connect with fellow booklovers.',
-                style: TextStyle(fontSize: descriptionSize, height: 1.7),
+                style: TextStyle(
+                    fontSize: descriptionSize,
+                    height: 1.7,
+                    color: const Color.fromARGB(255, 68, 53, 40)),
                 textAlign: textAlignment,
               )
             ],
