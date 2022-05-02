@@ -19,11 +19,11 @@ class NavBarItem extends StatelessWidget {
         width: 80,
         height: 30,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: const Color.fromARGB(255, 236, 222, 209),
           borderRadius: BorderRadius.circular(5),
           boxShadow: const [
             BoxShadow(
-              color: Color.fromARGB(255, 154, 235, 157),
+              color: Color.fromARGB(255, 174, 129, 100),
               blurRadius: 1,
               offset: Offset(0, 3),
             ),

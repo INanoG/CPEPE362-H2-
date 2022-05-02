@@ -24,11 +24,11 @@ class CallToActionTabletDesktop extends StatelessWidget {
               fontSize: 18, fontWeight: FontWeight.w800, color: Colors.white),
         ),
         decoration: BoxDecoration(
-          color: primaryColor,
+          color: const Color.fromARGB(255, 224, 171, 129),
           borderRadius: BorderRadius.circular(5),
           boxShadow: const [
             BoxShadow(
-              color: Color.fromARGB(255, 55, 83, 56),
+              color: Color.fromARGB(255, 174, 129, 100),
               blurRadius: 1,
               offset: Offset(0, 3),
             ),
