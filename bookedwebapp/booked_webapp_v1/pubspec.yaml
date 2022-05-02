@@ -37,6 +37,7 @@ dependencies:
   get_it:
   provider_architecture:
   provider: ^3.1.0
+  scaffold_gradient_background:
 
 dev_dependencies:
   flutter_test:

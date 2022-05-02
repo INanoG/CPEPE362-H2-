@@ -11,6 +11,7 @@ import 'package:booked_webapp_v1/views/welcome_page/welcome_page_desktop.dart';
 import 'package:booked_webapp_v1/views/welcome_page/welcome_page_mobile.dart';
 import 'package:booked_webapp_v1/widgets/centered_view/centered_view.dart';
 import 'package:booked_webapp_v1/widgets/navigation_drawer/navigation_drawer.dart';
+import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
 
 class LayoutTemplateHome extends StatelessWidget {
   const LayoutTemplateHome({Key? key}) : super(key: key);
@@ -18,23 +19,33 @@ class LayoutTemplateHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
-      builder: (context, sizingInformation) => Scaffold(
-        drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
-            ? NavigationDrawerHome()
-            : null,
-        backgroundColor: Colors.white,
-        body: Centered_View(
-          child: Column(
-            children: <Widget>[
-              const Navigation_Bar_Home(),
-              Expanded(
-                child: Navigator(
-                  key: locator<NavigationService>().navigatorKey,
-                  onGenerateRoute: generateRoute,
-                  initialRoute: HomeRoute,
+      builder: (context, sizingInformation) => Container(
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.centerLeft,
+                end: Alignment.centerRight,
+                colors: [
+              Color.fromARGB(255, 236, 222, 209),
+              Color.fromARGB(255, 221, 190, 159)
+            ])),
+        child: Scaffold(
+          drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
+              ? NavigationDrawerHome()
+              : null,
+          backgroundColor: Colors.transparent,
+          body: Centered_View(
+            child: Column(
+              children: <Widget>[
+                const Navigation_Bar_Home(),
+                Expanded(
+                  child: Navigator(
+                    key: locator<NavigationService>().navigatorKey,
+                    onGenerateRoute: generateRoute,
+                    initialRoute: WelcomeRoute,
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
