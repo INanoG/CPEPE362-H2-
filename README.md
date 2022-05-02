@@ -17,3 +17,4 @@ A Software Developent 2 project for Educational Purposes.
 > Reynaldo Subong Jr.
 
 ![KomiPeek](https://github.com/INanoG/CPEPE362-H2/blob/main/3249_KomiPeek2.png?raw=true)
+
