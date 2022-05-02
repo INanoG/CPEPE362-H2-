@@ -7,27 +7,36 @@ class WelcomeContentDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisAlignment: MainAxisAlignment.start,
-      children: const <Widget>[
-        Welcome_Details(),
-        SizedBox(
-          height: 50,
+      children: [
+        Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: const <Widget>[
+            Welcome_Details(),
+            SizedBox(
+              height: 50,
+            ),
+            Call_to_Action('Get Started'),
+            Expanded(
+              child: Center(),
+            ),
+          ],
         ),
-        Call_to_Action('Get Started'),
-        Expanded(
-          child: Center(),
+        Column(
+          children: <Widget>[
+            SizedBox(
+              height: 550,
+              width: 550,
+              child: Image.asset('assets/welcomePic.png'),
+            ),
+            const Expanded(
+              child: Center(),
+            ),
+          ],
         ),
       ],
     );
   }
 }
-
-/*
-Expanded(
-          child: Center(
-            child: Call_to_Action('Get Started'),
-          ),
-        ),
-*/

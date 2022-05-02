@@ -15,18 +15,21 @@ class Welcome_Details extends StatelessWidget {
         double titleSize =
             stringInformation.deviceScreenType == DeviceScreenType.mobile
                 ? 45
-                : 80;
+                : 70;
         double descriptionSize =
             stringInformation.deviceScreenType == DeviceScreenType.mobile
                 ? 16
                 : 21;
 
         return Container(
-          width: 600,
+          width: 550,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              const SizedBox(
+                height: 70,
+              ),
               Text(
                 'Books That Get You Hooked!',
                 style: TextStyle(
