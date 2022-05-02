@@ -28,7 +28,7 @@ class Welcome_Details extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const SizedBox(
-                height: 70,
+                height: 60,
               ),
               Text(
                 'Books That Get You Hooked!',
