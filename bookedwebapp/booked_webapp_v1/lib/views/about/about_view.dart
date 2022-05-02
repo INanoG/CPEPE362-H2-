@@ -6,7 +6,7 @@ class AboutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color.fromARGB(255, 250, 192, 187),
+      color: Color.fromARGB(255, 235, 229, 224),
     );
   }
 }

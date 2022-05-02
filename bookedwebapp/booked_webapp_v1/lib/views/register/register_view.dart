@@ -106,7 +106,7 @@ class RegisterView extends StatelessWidget {
                         width: 250,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
-                          color: const Color.fromARGB(255, 68, 53, 40),
+                          color: const Color.fromARGB(255, 122, 95, 71),
                         ),
                         child: const Padding(
                           padding: EdgeInsets.all(12.0),
