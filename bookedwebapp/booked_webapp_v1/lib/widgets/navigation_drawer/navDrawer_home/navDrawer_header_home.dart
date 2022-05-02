@@ -17,7 +17,7 @@ class NavigationDrawerHeaderHome extends StatelessWidget {
       },
       child: Container(
         height: 150,
-        color: primaryColor,
+        color: const Color.fromARGB(255, 224, 171, 129),
         alignment: Alignment.center,
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -27,12 +27,12 @@ class NavigationDrawerHeaderHome extends StatelessWidget {
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w800,
-                color: Colors.white,
+                color: Color.fromARGB(255, 68, 53, 40),
               ),
             ),
             Text(
               'TAP TO GO TO FORUMS',
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: Color.fromARGB(255, 68, 53, 40)),
             )
           ],
         ),

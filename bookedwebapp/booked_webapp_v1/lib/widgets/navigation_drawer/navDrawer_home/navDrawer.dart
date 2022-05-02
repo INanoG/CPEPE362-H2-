@@ -11,8 +11,9 @@ class NavigationDrawerHome extends StatelessWidget {
     return Container(
       width: 300,
       decoration: const BoxDecoration(
-          color: Colors.white,
-          boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 16)]),
+        color: Color.fromARGB(255, 250, 235, 221),
+        boxShadow: [BoxShadow(color: Colors.black12, blurRadius: 16)],
+      ),
       child: Column(
         children: const <Widget>[
           NavigationDrawerHeaderHome(),
