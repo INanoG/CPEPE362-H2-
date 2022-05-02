@@ -9,8 +9,7 @@ class NavigationBarMobile extends StatelessWidget {
     return Container(
       height: 80,
       child: Row(
-        mainAxisSize: MainAxisSize.max,
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: const <Widget>[
           NavBarLogo(),
         ],

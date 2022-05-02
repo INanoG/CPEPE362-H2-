@@ -12,3 +12,5 @@ class NavBarLogo extends StatelessWidget {
     );
   }
 }
+
+/* Image.asset('assets/booked.png')*/
