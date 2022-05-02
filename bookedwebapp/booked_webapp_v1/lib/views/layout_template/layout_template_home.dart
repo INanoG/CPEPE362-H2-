@@ -11,7 +11,6 @@ import 'package:booked_webapp_v1/views/welcome_page/welcome_page_desktop.dart';
 import 'package:booked_webapp_v1/views/welcome_page/welcome_page_mobile.dart';
 import 'package:booked_webapp_v1/widgets/centered_view/centered_view.dart';
 import 'package:booked_webapp_v1/widgets/navigation_drawer/navigation_drawer.dart';
-import 'package:scaffold_gradient_background/scaffold_gradient_background.dart';
 
 class LayoutTemplateHome extends StatelessWidget {
   const LayoutTemplateHome({Key? key}) : super(key: key);
