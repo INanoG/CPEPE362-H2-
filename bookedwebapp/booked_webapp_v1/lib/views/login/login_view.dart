@@ -1,4 +1,5 @@
 import 'package:booked_webapp_v1/views/layout_template/layout_template_home.dart';
+import 'package:booked_webapp_v1/views/layout_template/layout_template_main.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
@@ -95,14 +96,7 @@ class LoginView extends StatelessWidget {
                       height: 20,
                     ),
                     GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const LayoutTemplateHome(),
-                          ),
-                        );
-                      },
+                      onTap: () {},
                       child: Container(
                         alignment: Alignment.center,
                         width: 250,
