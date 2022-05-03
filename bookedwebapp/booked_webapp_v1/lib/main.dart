@@ -1,12 +1,15 @@
 import 'package:booked_webapp_v1/auth_service.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_home.dart';
 import 'package:booked_webapp_v1/widgets/splashart/splash_art.dart';
+import 'package:firebase/firebase.dart';
 import 'package:flutter/material.dart';
 import 'package:booked_webapp_v1/locator.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_main.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  setupLocator();
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
