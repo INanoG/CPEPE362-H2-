@@ -21,7 +21,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Open Sans'),
         ),
-        //home: const LayoutTemplate()
         //splashart must run first then after 3 seconds it will go to the layouttemplate for screensize checking
         home: Splash_Page(goToPage: const LayoutTemplateMain(), duration: 5));
   }
