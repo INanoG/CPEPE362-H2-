@@ -17,4 +17,15 @@ class AuthService {
       },
     );
   }
+
+  signOut() {
+    FirebaseAuth.instance.signOut();
+  }
+
+  signIn(email, password) {
+    FirebaseAuth.instance
+        .signInWithEmailAndPassword(email: email, password: password)
+        .then((user) {})
+        .catchError((e) {});
+  }
 }

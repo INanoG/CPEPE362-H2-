@@ -1,9 +1,38 @@
+import 'package:booked_webapp_v1/auth_service.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_home.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_main.dart';
 import 'package:flutter/material.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({Key? key}) : super(key: key);
+class LoginView extends StatefulWidget {
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
+  late String email, password;
+
+  final formKey = GlobalKey<FormState>();
+
+  checkFields() {
+    final form = formKey.currentState;
+    if (form!.validate()) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  String? validateEmail(String value) {
+    Pattern pattern =
+        r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
+    // ignore: unnecessary_new
+    RegExp regex = new RegExp(pattern.toString());
+    if (!regex.hasMatch(value)) {
+      return 'Enter Valid Email';
+    } else {
+      return null;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,23 +88,33 @@ class LoginView extends StatelessWidget {
                     const SizedBox(
                       height: 30,
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 250,
-                      child: TextField(
-                        decoration: InputDecoration(
+                      child: TextFormField(
+                        decoration: const InputDecoration(
                           labelText: 'Email Address',
                           suffixIcon: Icon(Icons.mail, size: 17),
                         ),
+                        validator: (value) => value!.isEmpty
+                            ? 'Email is required'
+                            : validateEmail(
+                                value.toString(),
+                              ),
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 250,
-                      child: TextField(
+                      child: TextFormField(
                         obscureText: true,
-                        decoration: InputDecoration(
+                        decoration: const InputDecoration(
                           labelText: 'Password',
                           suffixIcon: Icon(Icons.enhanced_encryption, size: 17),
                         ),
+                        validator: (value) =>
+                            value!.isEmpty ? 'Password is required' : null,
+                        onChanged: (value) {
+                          password = value;
+                        },
                       ),
                     ),
                     Padding(
@@ -96,7 +135,11 @@ class LoginView extends StatelessWidget {
                       height: 20,
                     ),
                     ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (checkFields()) {
+                          AuthService().signIn(email, password);
+                        }
+                      },
                       child: Container(
                         alignment: Alignment.center,
                         width: 250,

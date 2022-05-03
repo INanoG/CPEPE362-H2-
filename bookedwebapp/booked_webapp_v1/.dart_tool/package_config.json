@@ -57,19 +57,19 @@
     },
     {
       "name": "firebase_auth",
-      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.16",
+      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth-3.3.17",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
     {
       "name": "firebase_auth_platform_interface",
-      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.4",
+      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_platform_interface-6.2.5",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
     {
       "name": "firebase_auth_web",
-      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.13",
+      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_auth_web-3.3.14",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -81,13 +81,13 @@
     },
     {
       "name": "firebase_core_platform_interface",
-      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.2.5",
+      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_platform_interface-4.3.0",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
     {
       "name": "firebase_core_web",
-      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.2",
+      "rootUri": "file:///C:/flutter_windows_2.10.5-stable/flutter/.pub-cache/hosted/pub.dartlang.org/firebase_core_web-1.6.3",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     },
@@ -260,7 +260,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-05-03T07:49:52.002051Z",
+  "generated": "2022-05-03T16:07:06.651543Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }
