@@ -102,8 +102,8 @@ class RegisterView extends StatelessWidget {
                     const SizedBox(
                       height: 40,
                     ),
-                    GestureDetector(
-                      onTap: () {
+                    ElevatedButton(
+                      onPressed: () {
                         Navigator.push(
                           context,
                           MaterialPageRoute(

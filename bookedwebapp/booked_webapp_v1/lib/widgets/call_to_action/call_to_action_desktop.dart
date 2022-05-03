@@ -10,8 +10,8 @@ class CallToActionTabletDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
+    return ElevatedButton(
+      onPressed: () {
         // dont ever use a service directly in the ui to change any kind of state
         // services should only be used from a viewmodel
         locator<NavigationService>().navigateTo(LoginRoute);

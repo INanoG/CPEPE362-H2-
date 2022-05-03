@@ -95,8 +95,8 @@ class LoginView extends StatelessWidget {
                     const SizedBox(
                       height: 20,
                     ),
-                    GestureDetector(
-                      onTap: () {},
+                    ElevatedButton(
+                      onPressed: () {},
                       child: Container(
                         alignment: Alignment.center,
                         width: 250,
