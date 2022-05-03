@@ -7,10 +7,7 @@ import 'package:booked_webapp_v1/locator.dart';
 import 'package:booked_webapp_v1/routing/route_names.dart';
 import 'package:booked_webapp_v1/routing/router.dart';
 import 'package:booked_webapp_v1/services/navigation_service.dart';
-import 'package:booked_webapp_v1/views/welcome_page/welcome_page_desktop.dart';
-import 'package:booked_webapp_v1/views/welcome_page/welcome_page_mobile.dart';
 import 'package:booked_webapp_v1/widgets/centered_view/centered_view.dart';
-import 'package:booked_webapp_v1/widgets/navigation_drawer/navigation_drawer.dart';
 
 class LayoutTemplateHome extends StatelessWidget {
   const LayoutTemplateHome({Key? key}) : super(key: key);
@@ -29,7 +26,7 @@ class LayoutTemplateHome extends StatelessWidget {
             ])),
         child: Scaffold(
           drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile
-              ? NavigationDrawerHome()
+              ? const NavigationDrawerHome()
               : null,
           backgroundColor: Colors.transparent,
           body: Centered_View(
@@ -40,7 +37,7 @@ class LayoutTemplateHome extends StatelessWidget {
                   child: Navigator(
                     key: locator<NavigationService>().navigatorKey,
                     onGenerateRoute: generateRoute,
-                    initialRoute: WelcomeRoute,
+                    initialRoute: HomeRoute,
                   ),
                 ),
               ],

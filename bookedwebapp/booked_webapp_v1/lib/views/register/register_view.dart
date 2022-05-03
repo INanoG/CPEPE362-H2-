@@ -1,3 +1,5 @@
+import 'package:booked_webapp_v1/views/layout_template/layout_template_home.dart';
+import 'package:booked_webapp_v1/views/login/login_view.dart';
 import 'package:flutter/material.dart';
 
 class RegisterView extends StatelessWidget {
@@ -101,6 +103,14 @@ class RegisterView extends StatelessWidget {
                       height: 40,
                     ),
                     GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LoginView(),
+                          ),
+                        );
+                      },
                       child: Container(
                         alignment: Alignment.center,
                         width: 250,

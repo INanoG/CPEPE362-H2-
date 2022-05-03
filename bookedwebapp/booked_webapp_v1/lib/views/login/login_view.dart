@@ -1,3 +1,4 @@
+import 'package:booked_webapp_v1/views/layout_template/layout_template_home.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatelessWidget {
@@ -94,12 +95,20 @@ class LoginView extends StatelessWidget {
                       height: 20,
                     ),
                     GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const LayoutTemplateHome(),
+                          ),
+                        );
+                      },
                       child: Container(
                         alignment: Alignment.center,
                         width: 250,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(50),
-                          color: Color.fromARGB(255, 122, 95, 71),
+                          color: const Color.fromARGB(255, 122, 95, 71),
                         ),
                         child: const Padding(
                           padding: EdgeInsets.all(12.0),

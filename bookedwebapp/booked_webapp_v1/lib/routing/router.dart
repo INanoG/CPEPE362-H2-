@@ -26,7 +26,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case FeatureRoute:
       return _getPageRoute(FeatureView());
     default:
-      return _getPageRoute(const WelcomeView());
+      return _getPageRoute(WelcomeView());
   }
 }
 
