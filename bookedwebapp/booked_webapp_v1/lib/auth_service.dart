@@ -11,9 +11,8 @@ class AuthService {
         if (snapshot.hasData) {
           return const LayoutTemplateHome();
         } else {
-          const LayoutTemplateMain();
+          return const LayoutTemplateMain();
         }
-        throw '';
       },
     );
   }

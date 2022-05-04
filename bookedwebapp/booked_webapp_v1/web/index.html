@@ -39,7 +39,8 @@
        <script type="module">
         // Import the functions you need from the SDKs you need
         import { initializeApp } from "firebase/app";
-        import { getAuth } from "firebase/auth";
+        import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+        
         // TODO: Add SDKs for Firebase products that you want to use
         // https://firebase.google.com/docs/web/setup#available-libraries
       
@@ -52,13 +53,15 @@
           messagingSenderId: "473086017233",
           appId: "1:473086017233:web:a44698a5f59baf1092cff0"
         };
+        
       
         // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         // Initialize Firebase Authentication and get a reference to the service
         const auth = getAuth(app);
-
+      
         
+
       </script>
   <script>
     var serviceWorkerVersion = null;
