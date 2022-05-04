@@ -7,9 +7,7 @@ import 'package:booked_webapp_v1/locator.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_main.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-void main() async {
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+main() {
   setupLocator();
   runApp(const MyApp());
 }
