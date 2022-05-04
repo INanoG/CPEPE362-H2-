@@ -9,8 +9,8 @@ class NavBarItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: () {
+    return GestureDetector(
+      onTap: () {
         // dont ever use a service directly in the ui to change any kind of state
         // services should only be used from a viewmodel
         locator<NavigationService>().navigateTo(navigationPath);

@@ -134,8 +134,8 @@ class _LoginViewState extends State<LoginView> {
                     const SizedBox(
                       height: 20,
                     ),
-                    ElevatedButton(
-                      onPressed: () {
+                    GestureDetector(
+                      onTap: () {
                         if (checkFields()) {
                           AuthService().signIn(email, password);
                         }
