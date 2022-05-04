@@ -21,9 +21,15 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -43,23 +49,5 @@ class DefaultFirebaseOptions {
     projectId: 'booked-dcdf1',
     authDomain: 'booked-dcdf1.firebaseapp.com',
     storageBucket: 'booked-dcdf1.appspot.com',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDv-HiM4TE0MYQRYWhcXN7KOCrSvt67YBk',
-    appId: '1:473086017233:android:57622924e97b798892cff0',
-    messagingSenderId: '473086017233',
-    projectId: 'booked-dcdf1',
-    storageBucket: 'booked-dcdf1.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDYo3DxG1aoYOtxV5dOLBdjKJ9hhN-DK4s',
-    appId: '1:473086017233:ios:efb084d1bada998c92cff0',
-    messagingSenderId: '473086017233',
-    projectId: 'booked-dcdf1',
-    storageBucket: 'booked-dcdf1.appspot.com',
-    iosClientId: '473086017233-cl7428df8kghn29u5q4kluml8ikff0jg.apps.googleusercontent.com',
-    iosBundleId: 'com.example.bookedWebappV1',
   );
 }
