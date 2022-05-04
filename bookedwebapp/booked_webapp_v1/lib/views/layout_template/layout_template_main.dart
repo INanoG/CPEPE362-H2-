@@ -1,3 +1,4 @@
+import 'package:booked_webapp_v1/views/login/login_view.dart';
 import 'package:booked_webapp_v1/widgets/navigation_bar/navigation_bar_main/navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';

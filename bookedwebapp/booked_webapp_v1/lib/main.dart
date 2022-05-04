@@ -1,28 +1,40 @@
 import 'package:booked_webapp_v1/auth_service.dart';
+import 'package:booked_webapp_v1/views/home/home_view.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_home.dart';
+import 'package:booked_webapp_v1/views/login/login_view.dart';
 import 'package:booked_webapp_v1/widgets/splashart/splash_art.dart';
-import 'package:firebase/firebase.dart';
+import 'package:firebase/firebase.dart' hide User;
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:booked_webapp_v1/locator.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_main.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
   setupLocator();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+      providers: [
+        Provider<AuthService>(
+          create: (_) => AuthService(FirebaseAuth.instance),
+        ),
+        StreamProvider(
+          create: (context) => context.read<AuthService>().authStateChanges,
+          initialData: null,
+        ),
+      ],
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Booked',
         theme: ThemeData(
@@ -30,9 +42,25 @@ class MyApp extends StatelessWidget {
           textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Open Sans'),
         ),
         //splashart must run first then after 3 seconds it will go to the layouttemplate for screensize checking
-        home: Splash_Page(goToPage: AuthService().handleAuth(), duration: 5));
+        home: Splash_Page(goToPage: const AuthenticationWrapper(), duration: 5),
+      ),
+    );
   }
 }
 
+class AuthenticationWrapper extends StatelessWidget {
+  const AuthenticationWrapper({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final firebaseUser = context.watch<User?>();
+
+    if (firebaseUser != null) {
+      return const LayoutTemplateHome();
+    } else {
+      return const LayoutTemplateMain();
+    }
+  }
+}
 // AuthService().handleAuth()
 // const LayoutTemplateMain()

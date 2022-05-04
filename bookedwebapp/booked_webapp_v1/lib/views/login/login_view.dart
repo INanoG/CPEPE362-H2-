@@ -1,5 +1,7 @@
 import 'package:booked_webapp_v1/auth_service.dart';
+import 'package:booked_webapp_v1/views/home/home_view.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class LoginView extends StatefulWidget {
   @override
@@ -7,7 +9,9 @@ class LoginView extends StatefulWidget {
 }
 
 class _LoginViewState extends State<LoginView> {
-  late String email, password;
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  /*late String email, password;
 
   final formKey = GlobalKey<FormState>();
 
@@ -30,7 +34,7 @@ class _LoginViewState extends State<LoginView> {
     } else {
       return null;
     }
-  }
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -88,31 +92,23 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     SizedBox(
                       width: 250,
-                      child: TextFormField(
+                      child: TextField(
+                        controller: emailController,
                         decoration: const InputDecoration(
                           labelText: 'Email Address',
                           suffixIcon: Icon(Icons.mail, size: 17),
                         ),
-                        validator: (value) => value!.isEmpty
-                            ? 'Email is required'
-                            : validateEmail(
-                                value.toString(),
-                              ),
                       ),
                     ),
                     SizedBox(
                       width: 250,
-                      child: TextFormField(
+                      child: TextField(
+                        controller: passwordController,
                         obscureText: true,
                         decoration: const InputDecoration(
                           labelText: 'Password',
                           suffixIcon: Icon(Icons.enhanced_encryption, size: 17),
                         ),
-                        validator: (value) =>
-                            value!.isEmpty ? 'Password is required' : null,
-                        onChanged: (value) {
-                          password = value;
-                        },
                       ),
                     ),
                     Padding(
@@ -134,9 +130,15 @@ class _LoginViewState extends State<LoginView> {
                     ),
                     GestureDetector(
                       onTap: () {
-                        if (checkFields()) {
-                          AuthService().signIn(email, password);
-                        }
+                        context.read<AuthService>().signIn(
+                            email: emailController.text.trim(),
+                            password: passwordController.text.trim());
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const HomeView(),
+                          ),
+                        );
                       },
                       child: Container(
                         alignment: Alignment.center,
