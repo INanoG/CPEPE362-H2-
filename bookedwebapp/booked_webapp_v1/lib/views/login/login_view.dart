@@ -1,6 +1,4 @@
 import 'package:booked_webapp_v1/auth_service.dart';
-import 'package:booked_webapp_v1/views/layout_template/layout_template_home.dart';
-import 'package:booked_webapp_v1/views/layout_template/layout_template_main.dart';
 import 'package:flutter/material.dart';
 
 class LoginView extends StatefulWidget {
