@@ -6,8 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:booked_webapp_v1/locator.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_main.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   setupLocator();
   runApp(const MyApp());
 }

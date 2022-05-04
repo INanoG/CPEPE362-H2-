@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "473086017233",
+    "project_id": "booked-dcdf1",
+    "storage_bucket": "booked-dcdf1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:473086017233:android:57622924e97b798892cff0",
+        "android_client_info": {
+          "package_name": "com.example.booked_webapp_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "473086017233-ndmj9c1qg7g19cf80h59n2mq1867fqji.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDv-HiM4TE0MYQRYWhcXN7KOCrSvt67YBk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "473086017233-ndmj9c1qg7g19cf80h59n2mq1867fqji.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
