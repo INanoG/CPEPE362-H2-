@@ -220,7 +220,7 @@ class ProfileViewDesktop extends StatelessWidget {
                     style: TextStyle(
                       height: 1.2,
                       fontWeight: FontWeight.bold,
-                      fontSize: 25,
+                      fontSize: 20,
                       color: Color.fromARGB(255, 68, 53, 40),
                     ),
                     textAlign: TextAlign.start,
@@ -231,7 +231,7 @@ class ProfileViewDesktop extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        height: 100,
+                        height: 150,
                         width: 100,
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 59, 14, 17),
@@ -241,7 +241,7 @@ class ProfileViewDesktop extends StatelessWidget {
                         width: 15,
                       ),
                       Container(
-                        height: 100,
+                        height: 150,
                         width: 100,
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 59, 14, 17),
@@ -251,7 +251,7 @@ class ProfileViewDesktop extends StatelessWidget {
                         width: 15,
                       ),
                       Container(
-                        height: 100,
+                        height: 150,
                         width: 100,
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 59, 14, 17),
@@ -267,7 +267,7 @@ class ProfileViewDesktop extends StatelessWidget {
                     style: TextStyle(
                       height: 1.2,
                       fontWeight: FontWeight.bold,
-                      fontSize: 25,
+                      fontSize: 20,
                       color: Color.fromARGB(255, 68, 53, 40),
                     ),
                     textAlign: TextAlign.start,
@@ -278,7 +278,7 @@ class ProfileViewDesktop extends StatelessWidget {
                   Row(
                     children: [
                       Container(
-                        height: 100,
+                        height: 150,
                         width: 100,
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 70, 82, 44),
@@ -288,7 +288,7 @@ class ProfileViewDesktop extends StatelessWidget {
                         width: 15,
                       ),
                       Container(
-                        height: 100,
+                        height: 150,
                         width: 100,
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 70, 82, 44),
@@ -298,7 +298,7 @@ class ProfileViewDesktop extends StatelessWidget {
                         width: 15,
                       ),
                       Container(
-                        height: 100,
+                        height: 150,
                         width: 100,
                         decoration: const BoxDecoration(
                           color: Color.fromARGB(255, 70, 82, 44),
