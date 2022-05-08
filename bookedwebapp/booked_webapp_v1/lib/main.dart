@@ -5,6 +5,7 @@ import 'package:booked_webapp_v1/views/login/login_view.dart';
 import 'package:booked_webapp_v1/widgets/splashart/splash_art.dart';
 import 'package:firebase/firebase.dart' hide User;
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:booked_webapp_v1/locator.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_main.dart';
@@ -35,6 +36,7 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
+        scrollBehavior: MyCustomScrollBehavior(),
         debugShowCheckedModeBanner: false,
         title: 'Booked',
         theme: ThemeData(
@@ -61,6 +63,15 @@ class AuthenticationWrapper extends StatelessWidget {
       return const LayoutTemplateMain();
     }
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  // Override behavior methods and getters like dragDevices
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+      };
 }
 // AuthService().handleAuth()
 // const LayoutTemplateMain()

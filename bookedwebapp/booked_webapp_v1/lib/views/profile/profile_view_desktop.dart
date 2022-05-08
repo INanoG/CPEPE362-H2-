@@ -18,6 +18,7 @@ class ProfileViewDesktop extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
+              /// ------------------------ 1st Column ---------------------------////
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,
@@ -98,7 +99,7 @@ class ProfileViewDesktop extends StatelessWidget {
                     width: 250,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 189, 137, 137),
+                      color: const Color.fromARGB(255, 189, 137, 137),
                       borderRadius: BorderRadius.circular(5),
                     ),
                     child: const Text(
@@ -114,6 +115,8 @@ class ProfileViewDesktop extends StatelessWidget {
                   ),
                 ],
               ),
+
+              /// ------------------------ 2nd Column ---------------------------////
               const SizedBox(
                 width: 40,
               ),
@@ -211,6 +214,8 @@ class ProfileViewDesktop extends StatelessWidget {
               const SizedBox(
                 width: 40,
               ),
+
+              /// ------------------------ 3rd Column ---------------------------////
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.start,

@@ -9,14 +9,17 @@ class AboutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.transparent,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           const Text('You Are Logged In'),
           const SizedBox(
             height: 10,
           ),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(fixedSize: const Size(100, 100)),
             onPressed: () {
               context.read<AuthService>().signOut();
               Navigator.push(
