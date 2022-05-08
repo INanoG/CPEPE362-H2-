@@ -17,7 +17,14 @@ class Splash_Page extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: const AssetImage('assets/bg_splash.jpg'),
+            fit: BoxFit.cover,
+            colorFilter: ColorFilter.mode(
+                Colors.white.withOpacity(0.2), BlendMode.dstATop),
+          ),
+        ),
         alignment: Alignment.center,
         child: Image.asset(
           'assets/booked.png',

@@ -30,7 +30,7 @@ class NavigationBarTabletDesktopHome extends StatelessWidget {
               SizedBox(
                 width: 20,
               ),
-              NavBarItem('About', AboutRoute),
+              NavBarItem('Sign Out', LogoutRoute),
               SizedBox(
                 width: 20,
               ),

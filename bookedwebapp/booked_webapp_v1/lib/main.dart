@@ -3,7 +3,7 @@ import 'package:booked_webapp_v1/views/home/home_view.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_home.dart';
 import 'package:booked_webapp_v1/views/login/login_view.dart';
 import 'package:booked_webapp_v1/widgets/splashart/splash_art.dart';
-import 'package:firebase/firebase.dart' hide User;
+//import 'package:firebase/firebase.dart' hide User;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

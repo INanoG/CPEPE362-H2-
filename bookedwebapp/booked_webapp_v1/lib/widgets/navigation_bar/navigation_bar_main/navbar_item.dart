@@ -16,7 +16,7 @@ class NavBarItem extends StatelessWidget {
         locator<NavigationService>().navigateTo(navigationPath);
       },
       child: Container(
-        width: 80,
+        width: 90,
         height: 30,
         decoration: BoxDecoration(
           color: const Color.fromARGB(255, 236, 222, 209),
