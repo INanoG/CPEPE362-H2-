@@ -60,6 +60,12 @@ flutter:
     - assets/welcomePic.png
     - assets/booked.png
     - assets/bg_splash.jpg
+    - assets/about_icons/about_icons1.png
+    - assets/about_icons/about_icons2.png
+    - assets/about_icons/about_icons3.png
+    - assets/about_icons/about_icons4.png
+    - assets/about_icons/about_icons5.png
+    - assets/about_icons/about_icons6.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
