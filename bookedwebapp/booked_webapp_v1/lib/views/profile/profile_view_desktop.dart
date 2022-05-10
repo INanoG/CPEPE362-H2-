@@ -24,19 +24,22 @@ class ProfileViewDesktop extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    height: 150,
-                    width: 150,
+                    height: 210,
+                    width: 165,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 216, 163, 117),
-                      borderRadius: BorderRadius.circular(20),
+                      borderRadius: BorderRadius.circular(10),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 20,
                   ),
                   Container(
                     child: const Text(
-                      '@Vela',
+                      'Saitama',
                       style: TextStyle(
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.bold,
                         height: 1.2,
                         fontSize: 20,
                         color: Color.fromARGB(255, 68, 53, 40),
@@ -50,8 +53,26 @@ class ProfileViewDesktop extends StatelessWidget {
                       color: Colors.transparent,
                     ),
                   ),
+                  Container(
+                    child: const Text(
+                      '@caped_baldy',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w100,
+                        height: 1.2,
+                        fontSize: 15,
+                        color: Color.fromARGB(255, 68, 53, 40),
+                      ),
+                      textAlign: TextAlign.center,
+                    ),
+                    height: 30,
+                    width: 100,
+                    alignment: Alignment.centerLeft,
+                    decoration: const BoxDecoration(
+                      color: Colors.transparent,
+                    ),
+                  ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
                   ),
                   Container(
                     height: 22,
@@ -92,25 +113,38 @@ class ProfileViewDesktop extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 10,
+                    height: 20,
+                  ),
+                  const Text(
+                    'About Me',
+                    style: TextStyle(
+                      height: 1.2,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 14,
+                      color: Color.fromARGB(255, 68, 53, 40),
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                  const SizedBox(
+                    height: 3,
                   ),
                   Container(
-                    height: 250,
-                    width: 250,
+                    height: 132,
+                    width: 210,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 189, 137, 137),
-                      borderRadius: BorderRadius.circular(5),
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: const Text(
-                      'Bio',
+                      'I am just a guy who\n is a Hero for Fun',
                       style: TextStyle(
-                        height: 1.2,
+                        height: 1.5,
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
                         color: Color.fromARGB(255, 68, 53, 40),
                       ),
-                      textAlign: TextAlign.center,
+                      textAlign: TextAlign.justify,
                     ),
                   ),
                 ],
