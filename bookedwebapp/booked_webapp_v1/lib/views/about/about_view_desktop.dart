@@ -1,7 +1,4 @@
-import 'package:booked_webapp_v1/auth_service.dart';
-import 'package:booked_webapp_v1/views/welcome_page/welcome_page_view.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AboutViewDesktop extends StatelessWidget {
   const AboutViewDesktop({Key? key}) : super(key: key);
