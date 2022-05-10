@@ -27,7 +27,7 @@ class HomeContentDesktop extends StatelessWidget {
               color: Colors.transparent,
               height: 220,
               child: ListView.builder(
-                itemCount: 15,
+                itemCount: 9,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => Container(
                   height: 160,
@@ -35,7 +35,7 @@ class HomeContentDesktop extends StatelessWidget {
                   margin: const EdgeInsets.only(
                       left: 40, right: 40, top: 20, bottom: 20),
                   child: Center(
-                    child: Text("Book $index"),
+                    child: Image.asset('booked_new_$index'),
                   ),
                   color: const Color.fromARGB(255, 104, 96, 77),
                 ),
@@ -56,7 +56,7 @@ class HomeContentDesktop extends StatelessWidget {
               color: Colors.transparent,
               height: 220,
               child: ListView.builder(
-                itemCount: 15,
+                itemCount: 9,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => Container(
                   height: 160,
@@ -64,7 +64,7 @@ class HomeContentDesktop extends StatelessWidget {
                   margin: const EdgeInsets.only(
                       left: 40, right: 40, top: 20, bottom: 20),
                   child: Center(
-                    child: Text("Book $index"),
+                    child: Image.asset('booked_best_$index'),
                   ),
                   color: const Color.fromARGB(255, 104, 96, 77),
                 ),

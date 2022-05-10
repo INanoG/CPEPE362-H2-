@@ -66,6 +66,24 @@ flutter:
     - assets/about_icons/about_icon4.png
     - assets/about_icons/about_icon5.png
     - assets/about_icons/about_icon6.png
+    - assets/dashboard_books/booked_best_0.jpg
+    - assets/dashboard_books/booked_best_1.jpg
+    - assets/dashboard_books/booked_best_2.jpg
+    - assets/dashboard_books/booked_best_3.jpg
+    - assets/dashboard_books/booked_best_4.jpg
+    - assets/dashboard_books/booked_best_5.jpg
+    - assets/dashboard_books/booked_best_6.jpg
+    - assets/dashboard_books/booked_best_7.jpg
+    - assets/dashboard_books/booked_best_8.jpg
+    - assets/dashboard_books/booked_new_0.jpg
+    - assets/dashboard_books/booked_new_1.jpg
+    - assets/dashboard_books/booked_new_2.jpg
+    - assets/dashboard_books/booked_new_3.jpg
+    - assets/dashboard_books/booked_new_4.jpg
+    - assets/dashboard_books/booked_new_5.jpg
+    - assets/dashboard_books/booked_new_6.jpg
+    - assets/dashboard_books/booked_new_7.jpg
+    - assets/dashboard_books/booked_new_8.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
