@@ -25,19 +25,17 @@ class HomeContentDesktop extends StatelessWidget {
             ),
             Container(
               color: Colors.transparent,
-              height: 220,
+              height: 230,
               child: ListView.builder(
                 itemCount: 9,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => Container(
-                  height: 160,
-                  width: 130,
+                  height: 140,
+                  width: 110,
                   margin: const EdgeInsets.only(
                       left: 40, right: 40, top: 20, bottom: 20),
-                  child: Center(
-                    child: Image.asset('booked_new_$index'),
-                  ),
-                  color: const Color.fromARGB(255, 104, 96, 77),
+                  child: Image.asset(
+                      'assets/dashboard_books/booked_new_$index.jpg'),
                 ),
               ),
             ),
@@ -54,19 +52,17 @@ class HomeContentDesktop extends StatelessWidget {
             ),
             Container(
               color: Colors.transparent,
-              height: 220,
+              height: 230,
               child: ListView.builder(
                 itemCount: 9,
                 scrollDirection: Axis.horizontal,
                 itemBuilder: (context, index) => Container(
-                  height: 160,
-                  width: 130,
+                  height: 140,
+                  width: 110,
                   margin: const EdgeInsets.only(
                       left: 40, right: 40, top: 20, bottom: 20),
-                  child: Center(
-                    child: Image.asset('booked_best_$index'),
-                  ),
-                  color: const Color.fromARGB(255, 104, 96, 77),
+                  child: Image.asset(
+                      'assets/dashboard_books/booked_best_$index.jpg'),
                 ),
               ),
             )
