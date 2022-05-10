@@ -74,43 +74,57 @@ class ProfileViewDesktop extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  Container(
-                    height: 22,
-                    width: 100,
-                    alignment: Alignment.centerLeft,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Text(
-                      'Following : 24',
-                      style: TextStyle(
-                        height: 1.2,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 68, 53, 40),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        'Followers: ',
+                        style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 68, 53, 40),
+                        ),
+                        textAlign: TextAlign.start,
                       ),
-                      textAlign: TextAlign.start,
-                    ),
+                      Text(
+                        '32',
+                        style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 124, 86, 52),
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
                   ),
-                  Container(
-                    height: 22,
-                    width: 100,
-                    alignment: Alignment.centerLeft,
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const Text(
-                      'Followers : 5',
-                      style: TextStyle(
-                        height: 1.2,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 14,
-                        color: Color.fromARGB(255, 68, 53, 40),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      Text(
+                        'Following: ',
+                        style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 68, 53, 40),
+                        ),
+                        textAlign: TextAlign.start,
                       ),
-                      textAlign: TextAlign.start,
-                    ),
+                      Text(
+                        '15',
+                        style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 124, 86, 52),
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 20,
@@ -174,41 +188,98 @@ class ProfileViewDesktop extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    'Currently Reading',
-                    style: TextStyle(
-                      height: 1.2,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 68, 53, 40),
-                    ),
-                    textAlign: TextAlign.start,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      SizedBox(
+                        width: 150,
+                        child: Text(
+                          'Currently Reading',
+                          style: TextStyle(
+                            height: 1.2,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 68, 53, 40),
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                      Text(
+                        '5',
+                        style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 124, 86, 52),
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    'Finished Reading',
-                    style: TextStyle(
-                      height: 1.2,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 68, 53, 40),
-                    ),
-                    textAlign: TextAlign.start,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      SizedBox(
+                        width: 150,
+                        child: Text(
+                          'Finished Reading',
+                          style: TextStyle(
+                            height: 1.2,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 68, 53, 40),
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                      Text(
+                        '12',
+                        style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 124, 86, 52),
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 10,
                   ),
-                  const Text(
-                    'To Read',
-                    style: TextStyle(
-                      height: 1.2,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 68, 53, 40),
-                    ),
-                    textAlign: TextAlign.start,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      SizedBox(
+                        width: 150,
+                        child: Text(
+                          'To Read',
+                          style: TextStyle(
+                            height: 1.2,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 68, 53, 40),
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                      Text(
+                        '999',
+                        style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 124, 86, 52),
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: 20,
@@ -262,9 +333,8 @@ class ProfileViewDesktop extends StatelessWidget {
                       Container(
                         height: 150,
                         width: 100,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 59, 14, 17),
-                        ),
+                        child: Image.asset(
+                            'assets/dashboard_books/booked_new_3.jpg'),
                       ),
                       const SizedBox(
                         width: 15,
@@ -272,9 +342,8 @@ class ProfileViewDesktop extends StatelessWidget {
                       Container(
                         height: 150,
                         width: 100,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 59, 14, 17),
-                        ),
+                        child: Image.asset(
+                            'assets/dashboard_books/booked_new_4.jpg'),
                       ),
                       const SizedBox(
                         width: 15,
@@ -282,9 +351,8 @@ class ProfileViewDesktop extends StatelessWidget {
                       Container(
                         height: 150,
                         width: 100,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 59, 14, 17),
-                        ),
+                        child: Image.asset(
+                            'assets/dashboard_books/booked_new_0.jpg'),
                       ),
                     ],
                   ),
@@ -309,9 +377,8 @@ class ProfileViewDesktop extends StatelessWidget {
                       Container(
                         height: 150,
                         width: 100,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 70, 82, 44),
-                        ),
+                        child: Image.asset(
+                            'assets/dashboard_books/booked_best_6.jpg'),
                       ),
                       const SizedBox(
                         width: 15,
@@ -319,9 +386,8 @@ class ProfileViewDesktop extends StatelessWidget {
                       Container(
                         height: 150,
                         width: 100,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 70, 82, 44),
-                        ),
+                        child: Image.asset(
+                            'assets/dashboard_books/booked_best_7.jpg'),
                       ),
                       const SizedBox(
                         width: 15,
