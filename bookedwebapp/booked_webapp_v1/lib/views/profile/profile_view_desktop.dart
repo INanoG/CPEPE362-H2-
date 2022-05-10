@@ -24,8 +24,8 @@ class ProfileViewDesktop extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    height: 210,
-                    width: 165,
+                    height: 190,
+                    width: 145,
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 216, 163, 117),
@@ -46,7 +46,7 @@ class ProfileViewDesktop extends StatelessWidget {
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    height: 30,
+                    height: 25,
                     width: 100,
                     alignment: Alignment.centerLeft,
                     decoration: const BoxDecoration(
@@ -57,15 +57,15 @@ class ProfileViewDesktop extends StatelessWidget {
                     child: const Text(
                       '@caped_baldy',
                       style: TextStyle(
-                        fontWeight: FontWeight.w100,
+                        fontWeight: FontWeight.bold,
                         height: 1.2,
-                        fontSize: 15,
-                        color: Color.fromARGB(255, 68, 53, 40),
+                        fontSize: 14,
+                        color: Color.fromARGB(164, 68, 53, 40),
                       ),
                       textAlign: TextAlign.center,
                     ),
                     height: 30,
-                    width: 100,
+                    width: 150,
                     alignment: Alignment.centerLeft,
                     decoration: const BoxDecoration(
                       color: Colors.transparent,
@@ -87,7 +87,7 @@ class ProfileViewDesktop extends StatelessWidget {
                       style: TextStyle(
                         height: 1.2,
                         fontWeight: FontWeight.bold,
-                        fontSize: 12,
+                        fontSize: 14,
                         color: Color.fromARGB(255, 68, 53, 40),
                       ),
                       textAlign: TextAlign.start,
@@ -106,7 +106,7 @@ class ProfileViewDesktop extends StatelessWidget {
                       style: TextStyle(
                         height: 1.2,
                         fontWeight: FontWeight.bold,
-                        fontSize: 12,
+                        fontSize: 14,
                         color: Color.fromARGB(255, 68, 53, 40),
                       ),
                       textAlign: TextAlign.start,
@@ -159,7 +159,7 @@ class ProfileViewDesktop extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   const Text(
-                    'Stats',
+                    'Reading Status',
                     style: TextStyle(
                       height: 1.2,
                       fontWeight: FontWeight.bold,
@@ -172,39 +172,39 @@ class ProfileViewDesktop extends StatelessWidget {
                     height: 40,
                   ),
                   const SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   const Text(
-                    'Reading: 6',
+                    'Currently Reading',
                     style: TextStyle(
                       height: 1.2,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.bold,
                       fontSize: 16,
                       color: Color.fromARGB(255, 68, 53, 40),
                     ),
                     textAlign: TextAlign.start,
                   ),
                   const SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   const Text(
-                    'Completed: 3',
+                    'Finished Reading',
                     style: TextStyle(
                       height: 1.2,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.bold,
                       fontSize: 16,
                       color: Color.fromARGB(255, 68, 53, 40),
                     ),
                     textAlign: TextAlign.start,
                   ),
                   const SizedBox(
-                    height: 5,
+                    height: 10,
                   ),
                   const Text(
-                    'Plan to Read: 999',
+                    'To Read',
                     style: TextStyle(
                       height: 1.2,
-                      fontWeight: FontWeight.w100,
+                      fontWeight: FontWeight.bold,
                       fontSize: 16,
                       color: Color.fromARGB(255, 68, 53, 40),
                     ),
@@ -232,16 +232,6 @@ class ProfileViewDesktop extends StatelessWidget {
                       color: Color.fromARGB(255, 68, 53, 40),
                     ),
                     textAlign: TextAlign.start,
-                  ),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Container(
-                    height: 150,
-                    width: 500,
-                    decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 58, 65, 21),
-                    ),
                   ),
                 ],
               ),
@@ -335,13 +325,6 @@ class ProfileViewDesktop extends StatelessWidget {
                       ),
                       const SizedBox(
                         width: 15,
-                      ),
-                      Container(
-                        height: 150,
-                        width: 100,
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(255, 70, 82, 44),
-                        ),
                       ),
                     ],
                   ),
