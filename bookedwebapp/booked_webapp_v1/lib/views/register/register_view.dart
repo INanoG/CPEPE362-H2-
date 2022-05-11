@@ -1,9 +1,31 @@
-import 'package:booked_webapp_v1/views/layout_template/layout_template_home.dart';
+import 'dart:io';
+
 import 'package:booked_webapp_v1/views/login/login_view.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class RegisterView extends StatelessWidget {
-  const RegisterView({Key? key}) : super(key: key);
+class RegisterView extends StatefulWidget {
+  @override
+  _RegisterState createState() => _RegisterState();
+}
+
+class _RegisterState extends State<RegisterView> {
+  _RegisterState();
+
+  bool showProgress = false;
+  bool visible = false;
+  final _formkey = GlobalKey<FormState>();
+  final _auth = FirebaseAuth.instance;
+  CollectionReference ref = FirebaseFirestore.instance.collection('users');
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmpassController = TextEditingController();
+  final TextEditingController name = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController mobile = TextEditingController();
+  bool _isObscure = true;
+  bool _isObscure2 = true;
+  File? file;
 
   @override
   Widget build(BuildContext context) {
@@ -69,34 +91,84 @@ class RegisterView extends StatelessWidget {
                         ),
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 250,
-                      child: TextField(
-                        decoration: InputDecoration(
+                      child: TextFormField(
+                        decoration: const InputDecoration(
                           labelText: 'Email Address',
                           suffixIcon: Icon(Icons.mail, size: 17),
                         ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Email cannot be empty";
+                          }
+                          if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                              .hasMatch(value)) {
+                            return ("Please enter a valid email");
+                          } else {
+                            return null;
+                          }
+                        },
+                        onChanged: (value) {},
+                        keyboardType: TextInputType.emailAddress,
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 250,
-                      child: TextField(
+                      child: TextFormField(
                         obscureText: true,
+                        controller: passwordController,
                         decoration: InputDecoration(
                           labelText: 'Password',
-                          suffixIcon: Icon(Icons.enhanced_encryption, size: 17),
+                          suffixIcon: IconButton(
+                              icon: Icon(_isObscure
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                              onPressed: () {
+                                setState(() {
+                                  _isObscure = !_isObscure;
+                                });
+                              }),
                         ),
+                        validator: (value) {
+                          if (value!.isEmpty) {
+                            return "Email cannot be empty";
+                          }
+                          if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                              .hasMatch(value)) {
+                            return ("Please enter a valid email");
+                          } else {
+                            return null;
+                          }
+                        },
                       ),
                     ),
-                    const SizedBox(
+                    SizedBox(
                       width: 250,
-                      child: TextField(
-                        obscureText: true,
+                      child: TextFormField(
+                        obscureText: _isObscure2,
+                        controller: confirmpassController,
                         decoration: InputDecoration(
                           labelText: 'Confirm Password',
-                          suffixIcon:
-                              Icon(Icons.enhanced_encryption_sharp, size: 17),
+                          suffixIcon: IconButton(
+                              icon: Icon(_isObscure2
+                                  ? Icons.visibility_off
+                                  : Icons.visibility),
+                              onPressed: () {
+                                setState(() {
+                                  _isObscure2 = !_isObscure2;
+                                });
+                              }),
                         ),
+                        validator: (value) {
+                          if (confirmpassController.text !=
+                              passwordController.text) {
+                            return "Password did not match";
+                          } else {
+                            return null;
+                          }
+                        },
+                        onChanged: (value) {},
                       ),
                     ),
                     const SizedBox(
@@ -104,11 +176,12 @@ class RegisterView extends StatelessWidget {
                     ),
                     GestureDetector(
                       onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => LoginView(),
-                          ),
+                        setState(() {
+                          showProgress = true;
+                        });
+                        signUp(
+                          emailController.text,
+                          passwordController.text,
                         );
                       },
                       child: Container(
@@ -138,5 +211,35 @@ class RegisterView extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  signUp(String email, String password) async {
+    if (_formkey.currentState!.validate()) {
+      try {
+        UserCredential userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+              email: email,
+              password: password,
+            )
+            .whenComplete(() => {
+                  Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => LoginView(),
+                    ),
+                  )
+                });
+      } on FirebaseAuthException catch (e) {
+        if (e.code == 'weak-password') {
+          print('The password provided is too weak.');
+        } else if (e.code == 'email-already-in-use') {
+          print('The account already exists for that email.');
+        }
+      } catch (e) {
+        print(e);
+      }
+    }
+
+    const CircularProgressIndicator();
   }
 }
