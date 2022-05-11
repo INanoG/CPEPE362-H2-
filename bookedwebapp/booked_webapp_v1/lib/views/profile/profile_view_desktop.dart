@@ -26,9 +26,10 @@ class ProfileViewDesktop extends StatelessWidget {
                   Container(
                     height: 190,
                     width: 145,
+                    child: Image.asset('assets/sample_prof.png'),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 216, 163, 117),
+                      color: Colors.transparent,
                       borderRadius: BorderRadius.circular(10),
                     ),
                   ),
