@@ -180,8 +180,8 @@ class _RegisterState extends State<Register> {
                           showProgress = true;
                         });
                         signUp(
-                          emailController.text,
-                          passwordController.text,
+                          emailController.text.trim(),
+                          passwordController.text.trim(),
                         );
                       },
                       child: Container(
