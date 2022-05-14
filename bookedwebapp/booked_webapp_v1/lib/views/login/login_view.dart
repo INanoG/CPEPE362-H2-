@@ -165,17 +165,6 @@ class _LoginViewState extends State<LoginView> {
                           onTap: () {
                             signIn(emailController.text.trim(),
                                 passwordController.text.trim());
-
-                            /*context.read<AuthService>().signIn(
-                            email: emailController.text.trim(),
-                            password: passwordController.text.trim());
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const HomeView(),
-                          ),
-                        );*/
                           },
                           child: Container(
                             alignment: Alignment.center,
@@ -205,15 +194,6 @@ class _LoginViewState extends State<LoginView> {
       ),
     );
   }
-
-  /*Future signIn() async {
-    await FirebaseAuth.instance.signInWithEmailAndPassword(
-      email: emailController.text.trim(),
-      password: passwordController.text.trim(),
-
-      
-    );
-  }*/
 
   void signIn(String email, String password) async {
     if (_formkey.currentState!.validate()) {
