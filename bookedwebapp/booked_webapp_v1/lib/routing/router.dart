@@ -12,24 +12,27 @@ import 'package:booked_webapp_v1/views/welcome_page/welcome_page_view.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
   switch (settings.name) {
+    /////////////ForumRoutes
+
+    /////////////MainRoutes
     case WelcomeRoute:
-      return _getPageRoute(WelcomeView());
+      return _getPageRoute(const WelcomeView());
     case AboutRoute:
-      return _getPageRoute(AboutView());
+      return _getPageRoute(const AboutView());
     case ForumRoute:
-      return _getPageRoute(ForumView());
+      return _getPageRoute(const ForumView());
     case LoginRoute:
       return _getPageRoute(LoginView());
     case RegisterRoute:
-      return _getPageRoute(RegisterView());
+      return _getPageRoute(const RegisterView());
     case HomeRoute:
-      return _getPageRoute(HomeView());
+      return _getPageRoute(const HomeView());
     case LogoutRoute:
-      return _getPageRoute(LogoutView());
+      return _getPageRoute(const LogoutView());
     case ProfileRoute:
-      return _getPageRoute(ProfileView());
+      return _getPageRoute(const ProfileView());
     default:
-      return _getPageRoute(WelcomeView());
+      return _getPageRoute(const WelcomeView());
   }
 }
 
