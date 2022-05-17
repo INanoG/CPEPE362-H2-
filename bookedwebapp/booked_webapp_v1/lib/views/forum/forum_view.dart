@@ -323,25 +323,32 @@ class ForumView extends StatelessWidget {
               ),
             ),
             Container(
-              height: MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(10),
+                  color: Colors.transparent,
+                  borderRadius: BorderRadius.circular(5)),
+              child: ListView.builder(
+                itemBuilder: (BuildContext context, int index) =>
+                    EntryItem(listItemsData[index]),
+                itemCount: listItemsData.length,
+                shrinkWrap: true,
               ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Row(),
-                ],
-              ),
-            ),
+            )
           ],
         ),
       ),
     );
   }
+
+  static final listItemsData = [
+    ListEntry("Forum 1", "test", "description 1", 54, 2, true),
+    ListEntry("Forum 2", "test", "description 2", 154, 3, false),
+    ListEntry("Forum 3", "test", "description 3", 971, 0, false),
+    ListEntry("Forum 4", "test", "description 4", 124, 2, true),
+    ListEntry("Forum 5", "test", "description 5", 412, 5, true),
+    ListEntry("Forum 6", "test", "description 6", 12, 1, true),
+    ListEntry("Forum 7", "test", "description 7", 12, 1, true),
+    ListEntry("Forum 8", "test", "description 8", 12, 1, true),
+  ];
 }
 
 class CategoryIcon extends StatelessWidget {
@@ -361,11 +368,68 @@ class CategoryIcon extends StatelessWidget {
             onPressed: _onSearchPressed,
             color: selected == true ? Colors.orange : Colors.black,
           ),
-          Text(iconText)
+          Text(
+            iconText,
+            style: const TextStyle(
+                color: Color.fromARGB(255, 0, 0, 0), fontSize: 12),
+          ),
         ],
       ),
     );
   }
 
   static void _onSearchPressed() {}
+}
+
+class ListEntry {
+  final String title;
+  final String icon;
+  final String description;
+  final int views;
+  final int responses;
+  final bool answered;
+
+  ListEntry(this.title, this.icon, this.description, this.views, this.responses,
+      this.answered);
+}
+
+class EntryItem extends StatelessWidget {
+  const EntryItem(this.entry);
+
+  final ListEntry entry;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(3.0),
+      margin: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 3.0),
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(255, 182, 170, 151),
+        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+      ),
+      child: ListTile(
+        title: Text(entry.title),
+        subtitle: Text(entry.description),
+        leading: const Icon(
+          Icons.dashboard,
+          color: Color.fromARGB(255, 49, 44, 31),
+        ),
+        trailing: SizedBox(
+          width: 100,
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            verticalDirection: VerticalDirection.up,
+            children: <Widget>[
+              CategoryIcon(Icons.remove_red_eye, entry.views.toString(), false),
+              CategoryIcon(Icons.comment, entry.responses.toString(), false),
+            ],
+          ),
+        ),
+        onTap: () {
+          //Navigator.pushNamed(context, '/forum/1');
+        },
+      ),
+    );
+  }
 }

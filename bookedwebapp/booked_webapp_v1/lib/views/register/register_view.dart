@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:booked_webapp_v1/views/home/home_view.dart';
 import 'package:booked_webapp_v1/views/login/login_view.dart';
 import 'package:booked_webapp_v1/views/welcome_page/welcome_page_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -228,7 +229,7 @@ class _RegisterState extends State<RegisterView> {
                   Navigator.pushReplacement(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const WelcomeView(),
+                      builder: (context) => LoginView(),
                     ),
                   )
                 });

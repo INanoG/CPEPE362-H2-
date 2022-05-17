@@ -283,27 +283,46 @@ class ProfileViewDesktop extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(
+                    height: 10,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: const [
+                      SizedBox(
+                        width: 150,
+                        child: Text(
+                          'Score Average: ',
+                          style: TextStyle(
+                            height: 1.2,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 14,
+                            color: Color.fromARGB(255, 68, 53, 40),
+                          ),
+                          textAlign: TextAlign.start,
+                        ),
+                      ),
+                      Text(
+                        '7.34',
+                        style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Color.fromARGB(255, 124, 86, 52),
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(
                     height: 20,
                   ),
                   Container(
                     height: 150,
                     width: 500,
                     decoration: const BoxDecoration(
-                      color: Color.fromARGB(255, 11, 42, 63),
+                      color: Colors.transparent,
                     ),
-                  ),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  const Text(
-                    'Score Ave: 7.34',
-                    style: TextStyle(
-                      height: 1.2,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                      color: Color.fromARGB(255, 68, 53, 40),
-                    ),
-                    textAlign: TextAlign.start,
                   ),
                 ],
               ),
