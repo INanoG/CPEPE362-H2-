@@ -21,7 +21,6 @@ class NavigationDrawerHome extends StatelessWidget {
           DrawerItem('Dashboard', Icons.dashboard, HomeRoute),
           DrawerItem('Profile', Icons.person, ProfileRoute),
           DrawerItem('Forum', Icons.forum, ForumRoute),
-          DrawerItem('Sign Out', Icons.close_rounded, LogoutRoute),
         ],
       ),
     );

@@ -19,7 +19,11 @@ class LogoutView extends StatelessWidget {
             height: 10,
           ),
           ElevatedButton(
-            style: ElevatedButton.styleFrom(fixedSize: const Size(100, 100)),
+            style: ElevatedButton.styleFrom(
+              fixedSize: const Size(100, 30),
+              primary: const Color.fromARGB(255, 92, 66, 41),
+              onPrimary: const Color.fromARGB(255, 68, 48, 29),
+            ),
             onPressed: () {
               context.read<AuthService>().signOut();
               Navigator.push(
@@ -30,7 +34,12 @@ class LogoutView extends StatelessWidget {
               );
             },
             child: const Center(
-              child: Text('Sign Out'),
+              child: Text(
+                'Sign Out',
+                style: TextStyle(
+                  color: Color.fromARGB(255, 226, 218, 211),
+                ),
+              ),
             ),
           ),
         ],
