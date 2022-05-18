@@ -86,6 +86,7 @@ flutter:
     - assets/dashboard_books/booked_new_7.jpg
     - assets/dashboard_books/booked_new_8.jpg
     - assets/sample_prof.png
+    - assets/user_home.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see

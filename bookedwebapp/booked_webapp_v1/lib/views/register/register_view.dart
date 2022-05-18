@@ -177,8 +177,19 @@ class _RegisterState extends State<RegisterView> {
                       const SizedBox(
                         height: 40,
                       ),
-                      GestureDetector(
-                        onTap: () {
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          fixedSize: const Size(230, 50),
+                          primary: const Color.fromARGB(255, 122, 95, 71),
+                          elevation: 2,
+                          onPrimary: const Color.fromARGB(255, 59, 41, 25),
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 2, vertical: 2),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(50.0),
+                          ),
+                        ),
+                        onPressed: () {
                           setState(() {
                             showProgress = true;
                           });
@@ -187,22 +198,13 @@ class _RegisterState extends State<RegisterView> {
                             passwordController.text.trim(),
                           );
                         },
-                        child: Container(
-                          alignment: Alignment.center,
-                          width: 250,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: const Color.fromARGB(255, 122, 95, 71),
-                          ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(12.0),
-                            child: Text(
-                              'Sign Up',
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold),
-                            ),
+                        child: const Center(
+                          child: Text(
+                            'Sign Up',
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                       ),
@@ -247,3 +249,65 @@ class _RegisterState extends State<RegisterView> {
     const CircularProgressIndicator();
   }
 }
+
+
+/*
+                    ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(250, 50),
+                            primary: const Color.fromARGB(255, 122, 95, 71),
+                            elevation: 2,
+                            onPrimary: const Color.fromARGB(255, 59, 41, 25),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 2, vertical: 2),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50.0),
+                            ),
+                          ),
+                          onPressed: () {
+                            signIn(emailController.text.trim(),
+                                passwordController.text.trim());
+                          },
+                          child: const Center(
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+
+
+                        GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            showProgress = true;
+                          });
+                          signUp(
+                            emailController.text.trim(),
+                            passwordController.text.trim(),
+                          );
+                        },
+                        child: Container(
+                          alignment: Alignment.center,
+                          width: 250,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: const Color.fromARGB(255, 122, 95, 71),
+                          ),
+                          child: const Padding(
+                            padding: EdgeInsets.all(12.0),
+                            child: Text(
+                              'Sign Up',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      ),
+
+*/

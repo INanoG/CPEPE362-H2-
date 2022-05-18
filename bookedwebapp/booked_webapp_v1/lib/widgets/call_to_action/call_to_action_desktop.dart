@@ -10,7 +10,29 @@ class CallToActionTabletDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        //fixedSize: const Size(100, 30),
+        primary: const Color.fromARGB(255, 224, 171, 129),
+        onPrimary: const Color.fromARGB(255, 107, 82, 58),
+        padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
+      ),
+      onPressed: () {
+        locator<NavigationService>().navigateTo(LoginRoute);
+      },
+      child: Center(
+        child: Text(
+          title,
+          style: const TextStyle(
+              fontSize: 18, fontWeight: FontWeight.w800, color: Colors.white),
+        ),
+      ),
+    );
+  }
+}
+
+
+    /*GestureDetector(
       onTap: () {
         // dont ever use a service directly in the ui to change any kind of state
         // services should only be used from a viewmodel
@@ -36,5 +58,5 @@ class CallToActionTabletDesktop extends StatelessWidget {
         ),
       ),
     );
-  }
-}
+
+    */

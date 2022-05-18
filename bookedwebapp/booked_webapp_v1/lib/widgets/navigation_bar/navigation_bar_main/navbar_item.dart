@@ -38,3 +38,26 @@ class NavBarItem extends StatelessWidget {
     );
   }
 }
+/*
+
+
+ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        fixedSize: const Size(90, 30),
+        primary: const Color.fromARGB(255, 236, 222, 209),
+        elevation: 2,
+        onPrimary: const Color.fromARGB(255, 107, 82, 58),
+        shadowColor: const Color.fromARGB(255, 36, 26, 19),
+        padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+      ),
+      onPressed: () {
+        locator<NavigationService>().navigateTo(navigationPath);
+      },
+      child: Center(
+        child: Text(
+          title,
+          style: const TextStyle(fontSize: 15),
+        ),
+      ),
+    );
+*/

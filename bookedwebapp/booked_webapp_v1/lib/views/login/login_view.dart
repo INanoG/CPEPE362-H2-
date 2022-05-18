@@ -119,29 +119,17 @@ class _LoginViewState extends State<LoginView> {
                             controller: passwordController,
                             obscureText: visible,
                             decoration: InputDecoration(
-                                labelText: 'Password',
-                                suffixIcon: const Icon(
-                                    Icons.enhanced_encryption,
-                                    size: 17),
-                                suffix: InkWell(
-                                  child: visible
-                                      ? const Icon(
-                                          Icons.visibility_off,
-                                          size: 18,
-                                          color: Colors.grey,
-                                        )
-                                      : const Icon(
-                                          Icons.visibility,
-                                          size: 18,
-                                          color:
-                                              Color.fromARGB(255, 68, 53, 40),
-                                        ),
-                                  onTap: () {
+                              labelText: 'Password',
+                              suffixIcon: IconButton(
+                                  icon: Icon(visible
+                                      ? Icons.visibility_off
+                                      : Icons.visibility),
+                                  onPressed: () {
                                     setState(() {
                                       visible = !visible;
                                     });
-                                  },
-                                )),
+                                  }),
+                            ),
                           ),
                         ),
                         Padding(
@@ -161,27 +149,29 @@ class _LoginViewState extends State<LoginView> {
                         const SizedBox(
                           height: 20,
                         ),
-                        GestureDetector(
-                          onTap: () {
+                        ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            fixedSize: const Size(250, 50),
+                            primary: const Color.fromARGB(255, 122, 95, 71),
+                            elevation: 2,
+                            onPrimary: const Color.fromARGB(255, 59, 41, 25),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 2, vertical: 2),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50.0),
+                            ),
+                          ),
+                          onPressed: () {
                             signIn(emailController.text.trim(),
                                 passwordController.text.trim());
                           },
-                          child: Container(
-                            alignment: Alignment.center,
-                            width: 250,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(50),
-                              color: const Color.fromARGB(255, 122, 95, 71),
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.all(12.0),
-                              child: Text(
-                                'Login',
-                                style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold),
-                              ),
+                          child: const Center(
+                            child: Text(
+                              'Login',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 18,
+                                  fontWeight: FontWeight.bold),
                             ),
                           ),
                         ),
@@ -216,3 +206,50 @@ class _LoginViewState extends State<LoginView> {
     }
   }
 }
+
+/*
+ElevatedButton(
+      style: ElevatedButton.styleFrom(
+        fixedSize: const Size(90, 30),
+        primary: const Color.fromARGB(255, 236, 222, 209),
+        elevation: 2,
+        onPrimary: const Color.fromARGB(255, 107, 82, 58),
+        shadowColor: const Color.fromARGB(255, 36, 26, 19),
+        padding: const EdgeInsets.symmetric(horizontal: 2, vertical: 2),
+      ),
+      onPressed: () {
+        locator<NavigationService>().navigateTo(navigationPath);
+      },
+      child: Center(
+        child: Text(
+          title,
+          style: const TextStyle(fontSize: 15),
+        ),
+      ),
+    );
+
+    GestureDetector(
+                          onTap: () {
+                            signIn(emailController.text.trim(),
+                                passwordController.text.trim());
+                          },
+                          child: Container(
+                            alignment: Alignment.center,
+                            width: 250,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: const Color.fromARGB(255, 122, 95, 71),
+                            ),
+                            child: const Padding(
+                              padding: EdgeInsets.all(12.0),
+                              child: Text(
+                                'Login',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                          ),
+                        ),
+*/
