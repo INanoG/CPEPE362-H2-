@@ -17,18 +17,23 @@ class NavigationBarTabletDesktopHome extends StatelessWidget {
           const NavBarLogo(),
           Row(
             mainAxisSize: MainAxisSize.min,
-            children: const <Widget>[
-              NavBarItem('Dashboard', HomeRoute),
-              SizedBox(
+            children: <Widget>[
+              const NavBarItem('Dashboard', HomeRoute),
+              const SizedBox(
                 width: 20,
               ),
-              NavBarItem('Profile', ProfileRoute),
-              SizedBox(
+              const NavBarItem('Profile', ProfileRoute),
+              const SizedBox(
                 width: 20,
               ),
-              NavBarItem('Forum', ForumRoute),
+              const NavBarItem('Forum', ForumRoute),
+              const SizedBox(
+                width: 10,
+              ),
               SizedBox(
-                width: 20,
+                height: 45,
+                width: 45,
+                child: Image.asset('assets/user_home.png'),
               ),
             ],
           )
