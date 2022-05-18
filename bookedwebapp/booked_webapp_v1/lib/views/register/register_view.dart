@@ -1,11 +1,15 @@
 import 'dart:io';
+import 'package:booked_webapp_v1/auth_service.dart';
+import 'package:booked_webapp_v1/locator.dart';
+import 'package:booked_webapp_v1/routing/route_names.dart';
+import 'package:booked_webapp_v1/services/navigation_service.dart';
 
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:booked_webapp_v1/views/home/home_view.dart';
 import 'package:booked_webapp_v1/views/login/login_view.dart';
-import 'package:booked_webapp_v1/views/welcome_page/welcome_page_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
 
 class RegisterView extends StatefulWidget {
   const RegisterView({Key? key}) : super(key: key);
@@ -228,12 +232,14 @@ class _RegisterState extends State<RegisterView> {
               password: password,
             )
             .whenComplete(() => {
-                  Navigator.pushReplacement(
+                  context.read<AuthService>().signOut(),
+                  locator<NavigationService>().navigateTo(LoginRoute),
+                  /*Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => LoginView(),
                     ),
-                  )
+                  ),*/
                 });
       } on FirebaseAuthException catch (e) {
         if (e.code == 'weak-password') {
