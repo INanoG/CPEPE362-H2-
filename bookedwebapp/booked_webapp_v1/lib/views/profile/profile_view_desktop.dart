@@ -168,7 +168,7 @@ class ProfileViewDesktop extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  ElevatedButton(
+                  /*ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       fixedSize: const Size(100, 30),
                       primary: const Color.fromARGB(255, 141, 113, 87),
@@ -191,7 +191,7 @@ class ProfileViewDesktop extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
+                  ),*/
                 ],
               ),
 
