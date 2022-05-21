@@ -20,7 +20,7 @@ class HomeContentDesktop extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [
                 Text("NEW RELEASES"),
-                Text("JANUARY 2022"),
+                Text("JANUARY - MARCH 2022"),
               ],
             ),
             Container(

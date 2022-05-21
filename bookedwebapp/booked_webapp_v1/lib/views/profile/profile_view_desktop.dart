@@ -2,6 +2,8 @@ import 'package:booked_webapp_v1/views/welcome_page/welcome_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:booked_webapp_v1/auth_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileViewDesktop extends StatelessWidget {
   const ProfileViewDesktop({Key? key}) : super(key: key);
@@ -168,30 +170,6 @@ class ProfileViewDesktop extends StatelessWidget {
                   const SizedBox(
                     height: 30,
                   ),
-                  /*ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      fixedSize: const Size(100, 30),
-                      primary: const Color.fromARGB(255, 141, 113, 87),
-                      onPrimary: const Color.fromARGB(255, 107, 82, 58),
-                    ),
-                    onPressed: () {
-                      context.read<AuthService>().signOut();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const WelcomeView(),
-                        ),
-                      );
-                    },
-                    child: const Center(
-                      child: Text(
-                        'Sign Out',
-                        style: TextStyle(
-                          color: Color.fromARGB(255, 226, 218, 211),
-                        ),
-                      ),
-                    ),
-                  ),*/
                 ],
               ),
 

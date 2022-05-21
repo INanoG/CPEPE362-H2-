@@ -35,7 +35,7 @@ class NavigationBarTabletDesktopHome extends StatelessWidget {
               ),
               const NavBarItem('Forum', ForumRoute),
               const SizedBox(
-                width: 10,
+                width: 30,
               ),
               PopupMenuButton<MenuItem>(
                   onSelected: (item) => onSelected(context, item),

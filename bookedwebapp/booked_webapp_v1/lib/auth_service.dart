@@ -51,6 +51,10 @@ class AuthService {
     }
   }
 
+  Future<String?> getUserId() async {
+    return null;
+  }
+
   Future<String?> signUp(
       {required String email, required String password}) async {
     try {

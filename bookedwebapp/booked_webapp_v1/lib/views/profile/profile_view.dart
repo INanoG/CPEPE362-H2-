@@ -10,7 +10,7 @@ class ProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenTypeLayout(
       mobile: const ProfileViewMobile(),
-      desktop: const ProfileViewDesktop(),
+      desktop: ProfileViewDesktop(),
     );
   }
 }

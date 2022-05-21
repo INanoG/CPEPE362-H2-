@@ -73,5 +73,3 @@ class MyCustomScrollBehavior extends MaterialScrollBehavior {
         PointerDeviceKind.mouse,
       };
 }
-// AuthService().handleAuth()
-// const LayoutTemplateMain()
