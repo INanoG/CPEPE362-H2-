@@ -1,3 +1,4 @@
+import 'package:booked_webapp_v1/views/home/dashboard_books/new_releases/booked_new_0.dart';
 import 'package:flutter/material.dart';
 import 'package:booked_webapp_v1/widgets/call_to_action/call_to_action.dart';
 
@@ -29,13 +30,25 @@ class HomeContentDesktop extends StatelessWidget {
               child: ListView.builder(
                 itemCount: 9,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Container(
-                  height: 140,
-                  width: 110,
-                  margin: const EdgeInsets.only(
-                      left: 40, right: 40, top: 20, bottom: 20),
-                  child: Image.asset(
-                      'assets/dashboard_books/booked_new_$index.jpg'),
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => booked_new(
+                          booknum: index,
+                        ),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 140,
+                    width: 110,
+                    margin: const EdgeInsets.only(
+                        left: 40, right: 40, top: 20, bottom: 20),
+                    child: Image.asset(
+                        'assets/dashboard_books/booked_new_$index.jpg'),
+                  ),
                 ),
               ),
             ),
@@ -51,18 +64,29 @@ class HomeContentDesktop extends StatelessWidget {
               ],
             ),
             Container(
-              color: Colors.transparent,
               height: 230,
               child: ListView.builder(
                 itemCount: 9,
                 scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) => Container(
-                  height: 140,
-                  width: 110,
-                  margin: const EdgeInsets.only(
-                      left: 40, right: 40, top: 20, bottom: 20),
-                  child: Image.asset(
-                      'assets/dashboard_books/booked_best_$index.jpg'),
+                itemBuilder: (context, index) => GestureDetector(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => booked_new(
+                          booknum: index,
+                        ),
+                      ),
+                    );
+                  },
+                  child: Container(
+                    height: 140,
+                    width: 110,
+                    margin: const EdgeInsets.only(
+                        left: 40, right: 40, top: 20, bottom: 20),
+                    child: Image.asset(
+                        'assets/dashboard_books/booked_best_$index.jpg'),
+                  ),
                 ),
               ),
             )
@@ -72,3 +96,14 @@ class HomeContentDesktop extends StatelessWidget {
     );
   }
 }
+
+
+/*
+                        Container(
+                  height: 140,
+                  width: 110,
+                  margin: const EdgeInsets.only(
+                      left: 40, right: 40, top: 20, bottom: 20),
+                  child: Image.asset(
+                      'assets/dashboard_books/booked_best_$index.jpg'),
+                ),*/
