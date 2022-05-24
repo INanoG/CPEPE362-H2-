@@ -37,7 +37,7 @@ class NavigationBarTabletDesktopHome extends StatelessWidget {
               const SizedBox(
                 width: 30,
               ),
-              PopupMenuButton<MenuItem>(
+              PopupMenuButton<Menu_Item>(
                   onSelected: (item) => onSelected(context, item),
                   child: Container(
                       height: 45,
@@ -57,7 +57,7 @@ class NavigationBarTabletDesktopHome extends StatelessWidget {
     );
   }
 
-  PopupMenuItem<MenuItem> buildItem(MenuItem item) => PopupMenuItem(
+  PopupMenuItem<Menu_Item> buildItem(Menu_Item item) => PopupMenuItem(
         value: item,
         child: Row(
           children: [
@@ -69,7 +69,7 @@ class NavigationBarTabletDesktopHome extends StatelessWidget {
         ),
       );
 
-  void onSelected(BuildContext context, MenuItem item) {
+  void onSelected(BuildContext context, Menu_Item item) {
     switch (item) {
       case MenuItems.itemReadingList:
         break;

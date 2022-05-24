@@ -16,7 +16,7 @@ class booked_new extends StatefulWidget {
 class _booked_newState extends State<booked_new> {
   bool selected = false;
   Icon first_icon = const Icon(Icons.favorite_border_outlined);
-  Icon second_icon = Icon(Icons.favorite);
+  Icon second_icon = const Icon(Icons.favorite);
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +39,8 @@ class _booked_newState extends State<booked_new> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    height: 350,
-                    width: 305,
+                    height: 365,
+                    width: 320,
                     child: Image.asset('assets/dashboard_books/booked_new_' +
                         widget.booknum.toString() +
                         '.jpg'),
@@ -59,8 +59,8 @@ class _booked_newState extends State<booked_new> {
                     children: [
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          fixedSize: const Size(210, 35),
-                          primary: Color.fromARGB(255, 247, 227, 208),
+                          fixedSize: const Size(200, 35),
+                          primary: const Color.fromARGB(255, 247, 227, 208),
                           elevation: 2,
                           onPrimary: const Color.fromARGB(255, 59, 41, 25),
                           padding: const EdgeInsets.symmetric(
@@ -87,7 +87,7 @@ class _booked_newState extends State<booked_new> {
                         width: 40,
                         height: 35,
                         decoration: BoxDecoration(
-                          color: const Color.fromARGB(255, 236, 222, 209),
+                          color: const Color.fromARGB(255, 247, 227, 208),
                           borderRadius: BorderRadius.circular(5),
                           boxShadow: const [
                             BoxShadow(
@@ -114,30 +114,162 @@ class _booked_newState extends State<booked_new> {
                       ),
                     ],
                   ),
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: const [],
-                  ),
                   const SizedBox(
                     height: 20,
                   ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ///classic
+                      Container(
+                        height: 30,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 160, 119, 83),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Fiction',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 10, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      ////poetry
+                      Container(
+                        height: 30,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 160, 119, 83),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Sci-Fi',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 10, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      //
+                      const SizedBox(width: 5),
+                      Container(
+                        height: 30,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 160, 119, 83),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Historical',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 10, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                   const SizedBox(
-                    height: 3,
+                    height: 10,
+                  ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      ///classic
+                      Container(
+                        height: 30,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 160, 119, 83),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Fantasy',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 10, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 5),
+                      ////poetry
+                      Container(
+                        height: 30,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 160, 119, 83),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Literary Fiction',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 10, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                      //
+                      const SizedBox(width: 5),
+                      Container(
+                        height: 30,
+                        width: 80,
+                        decoration: BoxDecoration(
+                          color: const Color.fromARGB(255, 160, 119, 83),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            'Adult',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: 10, color: Colors.white),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),
 
               /// ------------------------ 2nd Column ---------------------------////
-              const SizedBox(
-                width: 40,
-              ),
               Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: const []),
-              const SizedBox(
-                width: 30,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: const <Widget>[
+                  Text(
+                    'Sea of Trangquility',
+                    style: TextStyle(
+                      height: 1.2,
+                      fontWeight: FontWeight.bold,
+                      fontSize: 30,
+                      color: Color.fromARGB(255, 68, 53, 40),
+                    ),
+                    textAlign: TextAlign.start,
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SizedBox(
+                    height: 500,
+                    child: Text(
+                      'by Emily St. John Mandel',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        height: 1.2,
+                        fontSize: 20,
+                        color: Color.fromARGB(255, 68, 53, 40),
+                      ),
+                      textAlign: TextAlign.start,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 450,
+                  ),
+                ],
               ),
 
               /// ------------------------ 3rd Column ---------------------------////
@@ -180,6 +312,5 @@ class _booked_newState extends State<booked_new> {
         ),
       ),
     );
-    ;
   }
 }

@@ -2,13 +2,13 @@ import 'package:booked_webapp_v1/widgets/menu/model/menu_item.dart';
 import 'package:flutter/material.dart';
 
 class MenuItems {
-  static const List<MenuItem> itemsFirst = [
+  static const List<Menu_Item> itemsFirst = [
     itemReadingList,
     itemSignOut,
   ];
 
   static const itemReadingList =
-      MenuItem(text: 'Reading List', icon: Icons.book);
+      Menu_Item(text: 'Reading List', icon: Icons.book);
 
-  static const itemSignOut = MenuItem(text: 'Sign Out', icon: Icons.logout);
+  static const itemSignOut = Menu_Item(text: 'Sign Out', icon: Icons.logout);
 }

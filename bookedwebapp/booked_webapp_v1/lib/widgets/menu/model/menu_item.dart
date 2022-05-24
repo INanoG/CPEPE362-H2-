@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class MenuItem {
+class Menu_Item {
   final String text;
   final IconData icon;
 
-  const MenuItem({
+  const Menu_Item({
     required this.text,
     required this.icon,
   });
