@@ -1,29 +1,27 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:booked_webapp_v1/views/home/dashboard_books/book_tags/bookTags.dart';
 import 'package:booked_webapp_v1/views/welcome_page/welcome_page_view.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:booked_webapp_v1/auth_service.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
-class booked_new extends StatefulWidget {
+class booked_best extends StatefulWidget {
   final int booknum;
-  booked_new({required this.booknum});
+  booked_best({required this.booknum});
 
   @override
-  State<booked_new> createState() => _booked_newState();
+  State<booked_best> createState() => _booked_bestState();
 }
 
-class _booked_newState extends State<booked_new> {
+class _booked_bestState extends State<booked_best> {
   final Stream<QuerySnapshot> books =
-      FirebaseFirestore.instance.collection('books').snapshots();
+      FirebaseFirestore.instance.collection('books_best').snapshots();
   bool selected = false;
   Icon first_icon = const Icon(Icons.favorite_border_outlined);
-  Icon second_icon = const Icon(Icons.favorite);
+  Icon second_icon = Icon(Icons.favorite);
   double rating = 0;
   final TextEditingController comment = TextEditingController();
   var commentadd = '';
@@ -68,7 +66,7 @@ class _booked_newState extends State<booked_new> {
                         height: 365,
                         width: 320,
                         child: Image.asset(
-                            'assets/dashboard_books/booked_new_' +
+                            'assets/dashboard_books/booked_best_' +
                                 widget.booknum.toString() +
                                 '.jpg'),
                         alignment: Alignment.centerLeft,
@@ -76,70 +74,6 @@ class _booked_newState extends State<booked_new> {
                           color: Colors.transparent,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              fixedSize: const Size(200, 35),
-                              primary: const Color.fromARGB(255, 247, 227, 208),
-                              elevation: 2,
-                              onPrimary: const Color.fromARGB(255, 59, 41, 25),
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 2, vertical: 2),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                            ),
-                            onPressed: () {},
-                            child: const Center(
-                              child: Text(
-                                'ADD TO LIST',
-                                style: TextStyle(
-                                    color: Color.fromARGB(255, 59, 41, 25),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.w600),
-                              ),
-                            ),
-                          ),
-                          const SizedBox(
-                            width: 10,
-                          ),
-                          Container(
-                            width: 40,
-                            height: 35,
-                            decoration: BoxDecoration(
-                              color: const Color.fromARGB(255, 247, 227, 208),
-                              borderRadius: BorderRadius.circular(5),
-                              boxShadow: const [
-                                BoxShadow(
-                                  color: Color.fromARGB(255, 174, 129, 100),
-                                  blurRadius: 1,
-                                  offset: Offset(0, 3),
-                                ),
-                              ],
-                            ),
-                            child: Center(
-                              child: IconButton(
-                                  icon: selected ? first_icon : second_icon,
-                                  onPressed: () {
-                                    try {
-                                      // your code that you want this IconButton do
-                                      setState(() {
-                                        selected = !selected;
-                                      });
-                                    } catch (e) {
-                                      print(e);
-                                    }
-                                  }),
-                            ),
-                          ),
-                        ],
                       ),
                       const SizedBox(
                         height: 20,

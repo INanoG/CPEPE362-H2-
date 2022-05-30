@@ -2,24 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:booked_webapp_v1/locator.dart';
 import 'package:booked_webapp_v1/services/navigation_service.dart';
 
-class NavBarItem extends StatelessWidget {
-  final String title;
-  final String navigationPath;
-  const NavBarItem(this.title, this.navigationPath);
+class bookTagItems extends StatelessWidget {
+  final String tag;
+
+  const bookTagItems(this.tag);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // dont ever use a service directly in the ui to change any kind of state
-        // services should only be used from a viewmodel
-        locator<NavigationService>().navigateTo(navigationPath);
-      },
+      onTap: () {},
       child: Container(
-        width: 90,
+        width: 80,
         height: 30,
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 236, 222, 209),
+          color: Color.fromARGB(255, 126, 89, 54),
           borderRadius: BorderRadius.circular(5),
           boxShadow: const [
             BoxShadow(
@@ -29,10 +25,12 @@ class NavBarItem extends StatelessWidget {
             ),
           ],
         ),
-        child: Text(
-          title,
-          textAlign: TextAlign.center,
-          style: const TextStyle(fontSize: 15),
+        child: Center(
+          child: Text(
+            tag,
+            textAlign: TextAlign.center,
+            style: const TextStyle(fontSize: 10, color: Colors.white),
+          ),
         ),
       ),
     );

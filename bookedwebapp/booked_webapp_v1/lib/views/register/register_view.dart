@@ -35,6 +35,7 @@ class _RegisterState extends State<RegisterView> {
   bool _isObscure2 = true;
   File? file;
   var name = '';
+  var currentUser = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -214,8 +215,16 @@ class _RegisterState extends State<RegisterView> {
                           );
                           users.add({
                             'userName': name,
-                            'email': emailController.text.trim()
-                          });
+                            'email': emailController.text.trim(),
+                            'about_me': "",
+                            'current_read': 0,
+                            'finished_read': 0,
+                            'followers': 0,
+                            'following': 0,
+                            'to_read': 0,
+                          }); /*.then((currentUser) => users.doc().set({
+                                'uid': currentUser.id,
+                              }));*/
                         },
                         child: const Center(
                           child: Text(

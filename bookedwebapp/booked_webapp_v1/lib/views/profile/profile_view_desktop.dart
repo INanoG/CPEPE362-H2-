@@ -1,14 +1,16 @@
-import 'package:booked_webapp_v1/views/welcome_page/welcome_page_view.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:booked_webapp_v1/auth_service.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfileViewDesktop extends StatelessWidget {
   final Stream<QuerySnapshot> users =
       FirebaseFirestore.instance.collection('users').snapshots();
+
   ProfileViewDesktop({Key? key}) : super(key: key);
+
+  var currentUser = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {

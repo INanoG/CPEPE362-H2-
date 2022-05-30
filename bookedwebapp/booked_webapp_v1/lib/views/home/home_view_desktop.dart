@@ -1,4 +1,4 @@
-import 'package:booked_webapp_v1/views/home/dashboard_books/new_releases/booked_best.dart';
+import 'package:booked_webapp_v1/views/home/dashboard_books/best_sellers/booked_best.dart';
 import 'package:booked_webapp_v1/views/home/dashboard_books/new_releases/booked_new.dart';
 import 'package:flutter/material.dart';
 import 'package:booked_webapp_v1/widgets/call_to_action/call_to_action.dart';
