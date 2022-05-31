@@ -213,7 +213,7 @@ class _RegisterState extends State<RegisterView> {
                             emailController.text.trim(),
                             passwordController.text.trim(),
                           );
-                          users.add({
+                          /*users.doc().set({
                             'userName': name,
                             'email': emailController.text.trim(),
                             'about_me': "",
@@ -222,9 +222,10 @@ class _RegisterState extends State<RegisterView> {
                             'followers': 0,
                             'following': 0,
                             'to_read': 0,
+                            'uid': currentUser!.uid,
                           }); /*.then((currentUser) => users.doc().set({
                                 'uid': currentUser.id,
-                              }));*/
+                              }));*/*/
                         },
                         child: const Center(
                           child: Text(
@@ -248,13 +249,26 @@ class _RegisterState extends State<RegisterView> {
   }
 
   Future signUp(String email, String password) async {
+    var currentUser = FirebaseAuth.instance.currentUser;
+
     if (_formkey.currentState!.validate()) {
       try {
-        UserCredential userCredential = await FirebaseAuth.instance
-            .createUserWithEmailAndPassword(
-              email: email,
-              password: password,
-            )
+        Future userCredential = FirebaseAuth.instance
+            .createUserWithEmailAndPassword(email: email, password: password)
+            .then((currentUser) => FirebaseFirestore.instance
+                    .collection("users")
+                    .doc(currentUser.user?.uid)
+                    .set({
+                  "uid": currentUser.user?.uid,
+                  'userName': name,
+                  'email': email,
+                  'about_me': "",
+                  'current_read': 0,
+                  'finished_read': 0,
+                  'followers': 0,
+                  'following': 0,
+                  'to_read': 0,
+                }))
             .whenComplete(() => {
                   context.read<AuthService>().signOut(),
                   locator<NavigationService>().navigateTo(LoginRoute),

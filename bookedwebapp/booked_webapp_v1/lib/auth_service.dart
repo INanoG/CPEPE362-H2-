@@ -4,11 +4,17 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AuthService {
-  final FirebaseAuth _firebaseAuth;
+  //final FirebaseAuth _firebaseAuth;
+  final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
-  AuthService(this._firebaseAuth);
+  AuthService(FirebaseAuth instance);
 
-  Stream<User?> get authStateChanges => _firebaseAuth.authStateChanges();
+  //AuthService(this._firebaseAuth);
+
+  Stream<User?> get onAuthStateChanged => _firebaseAuth.authStateChanges();
+  /*Stream<String> get onAuthStateChanged => _firebaseAuth.authStateChanges().map(
+        (User? user) => user!.uid,
+      );*/
 
   Future<void> signOut() async {
     await _firebaseAuth.signOut();
@@ -25,8 +31,12 @@ class AuthService {
     }
   }
 
-  Future<String?> getUserId() async {
-    return null;
+  Future<String> getCurrentUID() async {
+    return _firebaseAuth.currentUser!.uid;
+  }
+
+  Future<User?> getCurrentUser() async {
+    return _firebaseAuth.currentUser;
   }
 
   Future<String?> signUp(
@@ -40,3 +50,24 @@ class AuthService {
     }
   }
 }
+
+/*Stream<User?> get onAuthStateChanged => _firebaseAuth.authStateChanges();
+
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
+  }
+
+  Future<String?> signIn(
+      {required String email, required String password}) async {
+    try {
+      await _firebaseAuth.signInWithEmailAndPassword(
+          email: email, password: password);
+      return "Signed In";
+    } on FirebaseAuthException catch (e) {
+      return e.message;
+    }
+  }
+
+  Future<String> getCurrentUID() async {
+    return _firebaseAuth.currentUser!.uid;
+  }*/

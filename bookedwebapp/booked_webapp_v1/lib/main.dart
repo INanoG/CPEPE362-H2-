@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
           create: (_) => AuthService(FirebaseAuth.instance),
         ),
         StreamProvider(
-          create: (context) => context.read<AuthService>().authStateChanges,
+          create: (context) => context.read<AuthService>().onAuthStateChanged,
           initialData: null,
         ),
       ],
@@ -73,3 +73,47 @@ class MyCustomScrollBehavior extends MaterialScrollBehavior {
         PointerDeviceKind.mouse,
       };
 }
+
+/*class HomeController extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final AuthService auth = Provider.of(context).auth;
+    return StreamBuilder<String>(
+      stream: auth.onAuthStateChanged,
+      builder: (context, AsyncSnapshot<String> snapshot) {
+        if (snapshot.connectionState == ConnectionState.active) {
+          final bool signedIn = snapshot.hasData;
+          return signedIn ? const LayoutTemplateHome() : const LayoutTemplateMain();
+        }
+        return const CircularProgressIndicator();
+      },
+    );
+  }
+}*/
+
+/*
+@override
+  Widget build(BuildContext context) {
+    return MultiProvider(
+      providers: [
+        Provider<AuthService>(
+          create: (_) => AuthService(FirebaseAuth.instance),
+        ),
+        StreamProvider(
+          create: (context) => context.read<AuthService>().authStateChanges,
+          initialData: null,
+        ),
+      ],
+      child: MaterialApp(
+        scrollBehavior: MyCustomScrollBehavior(),
+        debugShowCheckedModeBanner: false,
+        title: 'Booked',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Open Sans'),
+        ),
+        //splashart must run first then after 3 seconds it will go to the layouttemplate for screensize checking
+        home: Splash_Page(goToPage: const AuthenticationWrapper(), duration: 5),
+      ),
+    );
+  }*/

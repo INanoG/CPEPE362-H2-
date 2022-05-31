@@ -1,8 +1,10 @@
+import 'package:booked_webapp_v1/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 
 class ProfileViewDesktop extends StatelessWidget {
   final Stream<QuerySnapshot> users =
@@ -11,6 +13,11 @@ class ProfileViewDesktop extends StatelessWidget {
   ProfileViewDesktop({Key? key}) : super(key: key);
 
   var currentUser = FirebaseAuth.instance.currentUser;
+  String userID = FirebaseAuth.instance.currentUser!.uid;
+
+  Future<DocumentSnapshot> fetchCurrentUser(String uuid) async {
+    return await FirebaseFirestore.instance.collection('users').doc(uuid).get();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,12 +30,13 @@ class ProfileViewDesktop extends StatelessWidget {
           decoration: const BoxDecoration(
             color: Colors.transparent,
           ),
-          child: StreamBuilder<QuerySnapshot>(
-            stream: users,
-            builder: (
-              BuildContext context,
-              AsyncSnapshot<QuerySnapshot> snapshot,
-            ) {
+          child: FutureBuilder<DocumentSnapshot>(
+            future: FirebaseFirestore.instance
+                .collection('users')
+                .doc(userID)
+                .get(),
+            //added AsyncSnapshot<DocumentSnapshot>
+            builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
               if (snapshot.hasError) {
                 return const Text('Something went wrong.');
               }
@@ -62,7 +70,7 @@ class ProfileViewDesktop extends StatelessWidget {
                       ),
                       Container(
                         child: Text(
-                          '${(data.docs[0]['userName'])}',
+                          '${data['userName']}',
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             height: 1.2,
@@ -79,9 +87,9 @@ class ProfileViewDesktop extends StatelessWidget {
                         ),
                       ),
                       Container(
-                        child: const Text(
-                          '@caped_baldy',
-                          style: TextStyle(
+                        child: Text(
+                          '@${data['userName']}.booked',
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             height: 1.2,
                             fontSize: 14,
@@ -114,7 +122,7 @@ class ProfileViewDesktop extends StatelessWidget {
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            '${(data.docs[0]['followers'])}',
+                            '${data['followers']}',
                             style: const TextStyle(
                               height: 1.2,
                               fontWeight: FontWeight.bold,
@@ -140,7 +148,7 @@ class ProfileViewDesktop extends StatelessWidget {
                             textAlign: TextAlign.start,
                           ),
                           Text(
-                            '${(data.docs[0]['following'])}',
+                            '${(data['following'])}',
                             style: const TextStyle(
                               height: 1.2,
                               fontWeight: FontWeight.bold,
@@ -234,7 +242,7 @@ class ProfileViewDesktop extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${(data.docs[0]['current_read'])}',
+                            '${(data['current_read'])}',
                             style: const TextStyle(
                               height: 1.2,
                               fontWeight: FontWeight.bold,
@@ -266,7 +274,7 @@ class ProfileViewDesktop extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${(data.docs[0]['finished_read'])}',
+                            '${(data['finished_read'])}',
                             style: const TextStyle(
                               height: 1.2,
                               fontWeight: FontWeight.bold,
@@ -298,7 +306,7 @@ class ProfileViewDesktop extends StatelessWidget {
                             ),
                           ),
                           Text(
-                            '${(data.docs[0]['to_read'])}',
+                            '${(data['to_read'])}',
                             style: const TextStyle(
                               height: 1.2,
                               fontWeight: FontWeight.bold,

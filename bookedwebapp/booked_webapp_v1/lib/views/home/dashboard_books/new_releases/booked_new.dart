@@ -21,6 +21,7 @@ class booked_new extends StatefulWidget {
 class _booked_newState extends State<booked_new> {
   final Stream<QuerySnapshot> books =
       FirebaseFirestore.instance.collection('books').snapshots();
+  CollectionReference reviews = FirebaseFirestore.instance.collection('users');
   bool selected = false;
   Icon first_icon = const Icon(Icons.favorite_border_outlined);
   Icon second_icon = const Icon(Icons.favorite);
@@ -306,7 +307,12 @@ class _booked_newState extends State<booked_new> {
                             borderRadius: BorderRadius.circular(5.0),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          reviews.add({
+                            //'userName': userName,
+                            'review_txt': comment.text.trim(),
+                          });
+                        },
                         child: const Center(
                           child: Text(
                             'Post Review',
@@ -317,6 +323,10 @@ class _booked_newState extends State<booked_new> {
                           ),
                         ),
                       ),
+                      const SizedBox(
+                        height: 30,
+                      ),
+
                       const SizedBox(
                         width: 450,
                       ),
