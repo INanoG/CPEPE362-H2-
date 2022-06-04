@@ -1,4 +1,7 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:booked_webapp_v1/auth_service.dart';
+import 'package:booked_webapp_v1/widgets/menu/data/prof_edit.dart';
+import 'package:booked_webapp_v1/widgets/menu/model/profile_item.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -6,11 +9,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 
-class ProfileViewDesktop extends StatelessWidget {
+class ProfileViewDesktop extends StatefulWidget {
+  ProfileViewDesktop({Key? key}) : super(key: key);
+
+  @override
+  State<ProfileViewDesktop> createState() => _ProfileViewDesktopState();
+}
+
+class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
   final Stream<QuerySnapshot> users =
       FirebaseFirestore.instance.collection('users').snapshots();
-
-  ProfileViewDesktop({Key? key}) : super(key: key);
 
   var currentUser = FirebaseAuth.instance.currentUser;
   String userID = FirebaseAuth.instance.currentUser!.uid;
@@ -18,6 +26,10 @@ class ProfileViewDesktop extends StatelessWidget {
   Future<DocumentSnapshot> fetchCurrentUser(String uuid) async {
     return await FirebaseFirestore.instance.collection('users').doc(uuid).get();
   }
+
+  final TextEditingController _textFieldController = TextEditingController();
+  var valueText = '';
+  var codeDialog = '';
 
   @override
   Widget build(BuildContext context) {
@@ -162,15 +174,37 @@ class ProfileViewDesktop extends StatelessWidget {
                       const SizedBox(
                         height: 20,
                       ),
-                      const Text(
-                        'About Me',
-                        style: TextStyle(
-                          height: 1.2,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 14,
-                          color: Color.fromARGB(255, 68, 53, 40),
-                        ),
-                        textAlign: TextAlign.start,
+                      Row(
+                        children: [
+                          const Text(
+                            'About Me',
+                            style: TextStyle(
+                              height: 1.2,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 16,
+                              color: Color.fromARGB(255, 68, 53, 40),
+                            ),
+                            textAlign: TextAlign.start,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          PopupMenuButton<Profile_Item>(
+                              onSelected: (item) => onSelected(context, item),
+                              child: Container(
+                                height: 25,
+                                width: 25,
+                                child: const Icon(
+                                  Icons.settings,
+                                  color: Color.fromARGB(255, 61, 42, 14),
+                                ),
+                              ),
+                              itemBuilder: (context) => [
+                                    ...ProfileItems.itemsFirst
+                                        .map(buildItem)
+                                        .toList()
+                                  ]),
+                        ],
                       ),
                       const SizedBox(
                         height: 3,
@@ -183,19 +217,22 @@ class ProfileViewDesktop extends StatelessWidget {
                           color: Colors.white,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                        child: const Text(
-                          'I am just a guy who\n is a Hero for Fun',
-                          style: TextStyle(
-                            height: 1.5,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 12,
+                        child: AutoSizeText.rich(
+                          TextSpan(text: '${(data['about_me'])}'),
+                          style: const TextStyle(
+                            height: 1.2,
+                            fontSize: 17,
                             color: Color.fromARGB(255, 68, 53, 40),
                           ),
-                          textAlign: TextAlign.justify,
+                          textAlign: TextAlign.center,
+                          minFontSize: 10,
+                          stepGranularity: 1,
+                          maxLines: 28,
+                          overflow: TextOverflow.ellipsis,
                         ),
                       ),
                       const SizedBox(
-                        height: 30,
+                        height: 10,
                       ),
                     ],
                   ),
@@ -458,5 +495,79 @@ class ProfileViewDesktop extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  PopupMenuItem<Profile_Item> buildItem(Profile_Item item) => PopupMenuItem(
+        value: item,
+        child: Row(
+          children: [
+            Icon(item.icon,
+                color: const Color.fromARGB(255, 92, 71, 43), size: 20),
+            const SizedBox(width: 12),
+            Text(item.text),
+          ],
+        ),
+      );
+
+  void onSelected(BuildContext context, Profile_Item item) {
+    switch (item) {
+      case ProfileItems.itemBio:
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text('About Me'),
+                content: TextField(
+                  onChanged: (value) {
+                    setState(() {
+                      valueText = value;
+                    });
+                  },
+                  controller: _textFieldController,
+                  decoration: const InputDecoration(hintText: "Enter Text"),
+                ),
+                actions: <Widget>[
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      fixedSize: const Size(80, 25),
+                      primary: const Color.fromARGB(255, 247, 227, 208),
+                      elevation: 2,
+                      onPrimary: const Color.fromARGB(255, 59, 41, 25),
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 2, vertical: 2),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(5.0),
+                      ),
+                    ),
+                    onPressed: () {
+                      codeDialog = valueText;
+                      final docUser = FirebaseFirestore.instance
+                          .collection('users')
+                          .doc(userID);
+
+                      docUser.update({
+                        'about_me': codeDialog,
+                      });
+
+                      Navigator.pop(context);
+                    },
+                    child: const Center(
+                      child: Text(
+                        'Done',
+                        style: TextStyle(
+                            color: Color.fromARGB(255, 59, 41, 25),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w200),
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            });
+        break;
+      case ProfileItems.itemPhoto:
+        break;
+      default:
+    }
   }
 }

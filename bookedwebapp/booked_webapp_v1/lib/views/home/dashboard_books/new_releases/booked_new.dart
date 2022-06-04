@@ -1,6 +1,9 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:booked_webapp_v1/provider/user_provider.dart';
+import 'package:booked_webapp_v1/resources/firestore_methods.dart';
 import 'package:booked_webapp_v1/views/home/dashboard_books/book_tags/bookTags.dart';
 import 'package:booked_webapp_v1/views/welcome_page/welcome_page_view.dart';
+import 'package:booked_webapp_v1/widgets/commentcard/commentcard.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:booked_webapp_v1/auth_service.dart';
@@ -9,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 
 class booked_new extends StatefulWidget {
   final int booknum;
@@ -21,7 +25,7 @@ class booked_new extends StatefulWidget {
 class _booked_newState extends State<booked_new> {
   final Stream<QuerySnapshot> books =
       FirebaseFirestore.instance.collection('books').snapshots();
-  CollectionReference reviews = FirebaseFirestore.instance.collection('users');
+  CollectionReference reviews = FirebaseFirestore.instance.collection('books');
   bool selected = false;
   Icon first_icon = const Icon(Icons.favorite_border_outlined);
   Icon second_icon = const Icon(Icons.favorite);
@@ -29,9 +33,32 @@ class _booked_newState extends State<booked_new> {
   final TextEditingController comment = TextEditingController();
   var commentadd = '';
   var userName = '';
+  String userID = FirebaseAuth.instance.currentUser!.uid;
+  //
+  final TextEditingController commentEditingController =
+      TextEditingController();
+
+  void postComment(String uid, String name, String profilePic) async {
+    try {
+      String res = await FireStoreMethods().postComment(
+        userID,
+        commentEditingController.text,
+        uid,
+        name,
+        profilePic,
+      );
+      setState(() {
+        commentEditingController.text = "";
+      });
+    } catch (err) {
+      print(err);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
+    //final User user = Provider.of<UserProvider>(context).getUser;
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
@@ -197,6 +224,7 @@ class _booked_newState extends State<booked_new> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
                         '${(data.docs[widget.booknum]['title'])}',
@@ -294,6 +322,7 @@ class _booked_newState extends State<booked_new> {
                       const SizedBox(
                         height: 5,
                       ),
+
                       //
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -326,7 +355,39 @@ class _booked_newState extends State<booked_new> {
                       const SizedBox(
                         height: 30,
                       ),
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: StreamBuilder(
+                          stream: FirebaseFirestore.instance
+                              .collection('review4New')
+                              .snapshots(),
+                          builder: (context,
+                              AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>>
+                                  snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return const Center(
+                                child: CircularProgressIndicator(),
+                              );
+                            }
 
+                            return Flexible(
+                              child: ListView.builder(
+                                shrinkWrap: true,
+                                itemCount: snapshot.data!.docs.length,
+                                itemBuilder:
+                                    (BuildContext context, int index) =>
+                                        CommentCard(
+                                  snap: snapshot.data!.docs[index],
+                                  booknumber: widget.booknum,
+                                ),
+                              ),
+                            );
+                          },
+                        ),
+                      ),
                       const SizedBox(
                         width: 450,
                       ),

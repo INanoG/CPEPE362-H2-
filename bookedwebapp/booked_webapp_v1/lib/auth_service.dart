@@ -1,11 +1,14 @@
 import 'package:booked_webapp_v1/views/layout_template/layout_template_home.dart';
 import 'package:booked_webapp_v1/views/layout_template/layout_template_main.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:booked_webapp_v1/models/user.dart' as model;
 
 class AuthService {
   //final FirebaseAuth _firebaseAuth;
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
   AuthService(FirebaseAuth instance);
 
@@ -35,8 +38,13 @@ class AuthService {
     return _firebaseAuth.currentUser!.uid;
   }
 
-  Future<User?> getCurrentUser() async {
-    return _firebaseAuth.currentUser;
+  Future<model.User> getUserDetails() async {
+    User currentUser = _firebaseAuth.currentUser!;
+
+    DocumentSnapshot documentSnapshot =
+        await _firestore.collection('users').doc(currentUser.uid).get();
+
+    return model.User.fromSnap(documentSnapshot);
   }
 
   Future<String?> signUp(

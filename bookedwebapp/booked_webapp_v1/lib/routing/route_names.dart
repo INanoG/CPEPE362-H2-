@@ -6,6 +6,7 @@ const String RegisterRoute = 'register';
 const String ProfileRoute = 'profile';
 const String WelcomeRoute = 'welcome';
 const String LogoutRoute = 'logout';
+const String ReadingListRoute = 'readinglist';
 /////////////////////////////////////
 /////Routes for Forum Categories/////
 /////////////////////////////////////
