@@ -268,6 +268,7 @@ class _RegisterState extends State<RegisterView> {
                   'followers': 0,
                   'following': 0,
                   'to_read': 0,
+                  'prof_url': '',
                 }))
             .whenComplete(() => {
                   context.read<AuthService>().signOut(),

@@ -1,8 +1,13 @@
+import 'dart:typed_data';
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:booked_webapp_v1/auth_service.dart';
+import 'package:booked_webapp_v1/services/storage_service.dart';
 import 'package:booked_webapp_v1/widgets/menu/data/prof_edit.dart';
 import 'package:booked_webapp_v1/widgets/menu/model/profile_item.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -30,6 +35,8 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
   final TextEditingController _textFieldController = TextEditingController();
   var valueText = '';
   var codeDialog = '';
+  final Storage storage = Storage();
+  var url;
 
   @override
   Widget build(BuildContext context) {
@@ -67,16 +74,42 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
-                      Container(
+                      FutureBuilder(
+                        future: storage.downloadURL('${data['prof_url']}'),
+                        builder: (BuildContext context,
+                            AsyncSnapshot<String> snapshots) {
+                          if (snapshots.connectionState ==
+                              ConnectionState.done) {
+                            return Container(
+                              height: 190,
+                              width: 145,
+                              //child: Image.asset('assets/sample_prof.png'),
+                              //storage.downloadURL('${data['prof_url']}')
+                              child: Image.network(snapshots.data!.toString(),
+                                  fit: BoxFit.cover),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: Colors.transparent,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            );
+                          }
+
+                          return Container();
+                        },
+                      ),
+                      /*Container(
                         height: 190,
                         width: 145,
-                        child: Image.asset('assets/sample_prof.png'),
+                        //child: Image.asset('assets/sample_prof.png'),
+                        //storage.downloadURL('${data['prof_url']}')
+                        child: Image.network(url),
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: Colors.transparent,
                           borderRadius: BorderRadius.circular(10),
                         ),
-                      ),
+                      ),*/
                       const SizedBox(
                         height: 20,
                       ),
@@ -509,7 +542,7 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
         ),
       );
 
-  void onSelected(BuildContext context, Profile_Item item) {
+  Future<void> onSelected(BuildContext context, Profile_Item item) async {
     switch (item) {
       case ProfileItems.itemBio:
         showDialog(
@@ -566,8 +599,51 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
             });
         break;
       case ProfileItems.itemPhoto:
+        final results = await FilePicker.platform.pickFiles(
+          allowMultiple: false,
+          type: FileType.custom,
+          allowedExtensions: ['png', 'jpg'],
+        );
+
+        if (results == null) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text("No File Selected"),
+            ),
+          );
+          return;
+        }
+
+        final fileBytes = results.files.first.bytes;
+        final filename = results.files.single.name;
+
+        final docUser =
+            FirebaseFirestore.instance.collection('users').doc(userID);
+
+        docUser.update({
+          'prof_url': filename,
+        });
+
+        storage.uploadFile(fileBytes!, filename).then(
+              (value) => print('Done'),
+            );
         break;
       default:
     }
   }
 }
+
+/*
+final fileBytes = results.files.first.bytes;
+        //final path = results.files.single.path!;
+        final filename = results.files.single.name;
+
+        await FirebaseStorage.instance.ref('user_prof_pics/$filename').putData(fileBytes!);
+
+final path = results.files.single.path!;
+        final filename = results.files.single.name;
+
+        storage.uploadFile(path, filename).then(
+              (value) => print('Done'),
+            );
+*/
