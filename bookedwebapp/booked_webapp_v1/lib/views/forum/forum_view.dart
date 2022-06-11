@@ -1,3 +1,4 @@
+import 'package:booked_webapp_v1/views/forum/category_pages/classic/classdisc1.dart';
 import 'package:flutter/material.dart';
 
 class ForumView extends StatelessWidget {
@@ -328,7 +329,7 @@ class ForumView extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5)),
               child: ListView.builder(
                 itemBuilder: (BuildContext context, int index) =>
-                    EntryItem(listItemsData[index]),
+                    EntryItem(listItemsData[index], index),
                 itemCount: listItemsData.length,
                 shrinkWrap: true,
               ),
@@ -340,14 +341,14 @@ class ForumView extends StatelessWidget {
   }
 
   static final listItemsData = [
-    ListEntry("Forum 1", "test", "description 1", 54, 2, true),
-    ListEntry("Forum 2", "test", "description 2", 154, 3, false),
-    ListEntry("Forum 3", "test", "description 3", 971, 0, false),
-    ListEntry("Forum 4", "test", "description 4", 124, 2, true),
-    ListEntry("Forum 5", "test", "description 5", 412, 5, true),
-    ListEntry("Forum 6", "test", "description 6", 12, 1, true),
-    ListEntry("Forum 7", "test", "description 7", 12, 1, true),
-    ListEntry("Forum 8", "test", "description 8", 12, 1, true),
+    ListEntry("Forum 1", "Discussion 1", "I love this book", 54, 2, true),
+    ListEntry("Forum 2", "test", "Discussion 2", 154, 3, false),
+    ListEntry("Forum 3", "test", "Discussion 3", 971, 0, false),
+    ListEntry("Forum 4", "test", "Discussion 4", 124, 2, true),
+    ListEntry("Forum 5", "test", "Discussion 5", 412, 5, true),
+    ListEntry("Forum 6", "test", "Discussion 6", 12, 1, true),
+    ListEntry("Forum 7", "test", "Discussion 7", 12, 1, true),
+    ListEntry("Forum 8", "test", "Discussion 8", 12, 1, true),
   ];
 }
 
@@ -394,7 +395,9 @@ class ListEntry {
 }
 
 class EntryItem extends StatelessWidget {
-  const EntryItem(this.entry);
+  final int count;
+
+  const EntryItem(this.entry, this.count);
 
   final ListEntry entry;
 
@@ -427,7 +430,12 @@ class EntryItem extends StatelessWidget {
           ),
         ),
         onTap: () {
-          //Navigator.pushNamed(context, '/forum/1');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => classicdisc1(entrynum: count),
+            ),
+          );
         },
       ),
     );
