@@ -6,12 +6,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class horrorGenre extends StatefulWidget {
+class textbookGenre extends StatefulWidget {
   final int entrynum;
-  horrorGenre({required this.entrynum});
+  textbookGenre({required this.entrynum});
 
   @override
-  _horrorGenre createState() => _horrorGenre();
+  _textbookGenre createState() => _textbookGenre();
 }
 
 /*var ForumPostArr = [
@@ -33,6 +33,7 @@ CollectionReference user = FirebaseFirestore.instance
     .get() as CollectionReference<Object?>;
 var userName = '';
 int commentcnt = 0;
+
 final dissTitle = [
   'Book Suggestions',
   'Questions',
@@ -44,7 +45,7 @@ final dissTitle = [
   'Updates',
 ];
 
-class _horrorGenre extends State<horrorGenre> {
+class _textbookGenre extends State<textbookGenre> {
   @override
   Widget build(BuildContext context) {
     var questionSection = Padding(
@@ -62,8 +63,8 @@ class _horrorGenre extends State<horrorGenre> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: const <Widget>[
                 IconWithText(
-                  Icons.dark_mode_rounded,
-                  "Horror",
+                  Icons.catching_pokemon_rounded,
+                  "Textbook",
                   iconColor: Color.fromARGB(255, 68, 54, 24),
                 ),
                 IconWithText(
@@ -82,7 +83,7 @@ class _horrorGenre extends State<horrorGenre> {
     var responses = StreamBuilder(
       stream: FirebaseFirestore.instance
           .collection('post')
-          .doc('horror_forum')
+          .doc('textbook_forum')
           .collection(widget.entrynum.toString())
           .snapshots(),
       builder: (BuildContext context,
@@ -114,7 +115,7 @@ class _horrorGenre extends State<horrorGenre> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(151, 184, 157, 117),
-        title: const Text('Horror'),
+        title: const Text('Textbook'),
       ),
       body: Column(
         children: <Widget>[
@@ -184,7 +185,7 @@ class _horrorGenre extends State<horrorGenre> {
                   onPressed: () {
                     CollectionReference posts = FirebaseFirestore.instance
                         .collection('post')
-                        .doc('horror_forum')
+                        .doc('textbook_forum')
                         .collection(widget.entrynum.toString());
                     posts.doc('$commentcnt').set({
                       'username': userName,
@@ -274,9 +275,9 @@ class ForumPostEntry extends StatelessWidget {
                     ],
                   ),
                 ),
-                Row(
-                  children: const <Widget>[
-                    /*Padding(
+                /*Row(
+                  children: <Widget>[
+                    Padding(
                       padding: const EdgeInsets.all(2.0),
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
@@ -292,7 +293,7 @@ class ForumPostEntry extends StatelessWidget {
                           likkes = 1 + likes;
                           final docUser = FirebaseFirestore.instance
                               .collection('post')
-                              .doc('horror_forum')
+                              .doc('classic_forum')
                               .collection('1')
                               .doc('0');
 
@@ -313,9 +314,9 @@ class ForumPostEntry extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.only(right: 8.0, left: 2.0),
                       child: Text(dislikes.toString()),
-                    ),*/
+                    ),
                   ],
-                )
+                )*/
               ],
             ),
           ),

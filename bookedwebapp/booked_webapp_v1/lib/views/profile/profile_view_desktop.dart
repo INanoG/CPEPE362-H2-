@@ -155,8 +155,8 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          const Text(
+                        children: const [
+                          /*const Text(
                             'Followers: ',
                             style: TextStyle(
                               height: 1.2,
@@ -175,7 +175,7 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                               color: Color.fromARGB(255, 124, 86, 52),
                             ),
                             textAlign: TextAlign.start,
-                          ),
+                          ),*/
                         ],
                       ),
                       Row(

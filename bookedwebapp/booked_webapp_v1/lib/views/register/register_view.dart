@@ -35,7 +35,7 @@ class _RegisterState extends State<RegisterView> {
   bool _isObscure2 = true;
   File? file;
   var name = '';
-  var currentUser = FirebaseAuth.instance.currentUser;
+  var userid = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
@@ -205,7 +205,7 @@ class _RegisterState extends State<RegisterView> {
                             borderRadius: BorderRadius.circular(50.0),
                           ),
                         ),
-                        onPressed: () {
+                        onPressed: () async {
                           setState(() {
                             showProgress = true;
                           });

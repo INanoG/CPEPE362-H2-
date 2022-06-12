@@ -33,6 +33,16 @@ CollectionReference user = FirebaseFirestore.instance
     .get() as CollectionReference<Object?>;
 var userName = '';
 int commentcnt = 0;
+final dissTitle = [
+  'Book Suggestions',
+  'Questions',
+  'Book Discussions',
+  'Random Topics',
+  'Marketplace',
+  'Upcomming Books',
+  'Feedbacks',
+  'Updates',
+];
 
 class _classicdisc1 extends State<classicdisc1> {
   @override
@@ -41,8 +51,8 @@ class _classicdisc1 extends State<classicdisc1> {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: <Widget>[
-          const Text(
-            "Book Suggestions",
+          Text(
+            dissTitle[widget.entrynum],
             textScaleFactor: 2.0,
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
@@ -52,7 +62,7 @@ class _classicdisc1 extends State<classicdisc1> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: const <Widget>[
                 IconWithText(
-                  Icons.laptop_mac,
+                  Icons.catching_pokemon_rounded,
                   "Classic",
                   iconColor: Color.fromARGB(255, 68, 54, 24),
                 ),
@@ -61,11 +71,6 @@ class _classicdisc1 extends State<classicdisc1> {
                   "Books",
                   iconColor: Color.fromARGB(255, 68, 54, 24),
                 ),
-                IconWithText(
-                  Icons.remove_red_eye,
-                  "54",
-                  iconColor: Color.fromARGB(255, 68, 54, 24),
-                )
               ],
             ),
           ),
@@ -99,7 +104,8 @@ class _classicdisc1 extends State<classicdisc1> {
                   '${(data.docs[index]['hours'])}',
                   (data.docs[index]['likes']),
                   (data.docs[index]['dislikes']),
-                  '${(data.docs[index]['text'])}'),
+                  '${(data.docs[index]['text'])}',
+                  index),
             ));
       },
     );
@@ -108,7 +114,7 @@ class _classicdisc1 extends State<classicdisc1> {
       backgroundColor: Colors.transparent,
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(151, 184, 157, 117),
-        title: Text("Discussion " + widget.entrynum.toString()),
+        title: const Text('Classic'),
       ),
       body: Column(
         children: <Widget>[
@@ -227,15 +233,17 @@ class _classicdisc1 extends State<classicdisc1> {
 class ForumPostEntry extends StatelessWidget {
   final String username;
   final String hours;
-  final int likes;
+  int likes;
   final int dislikes;
   final String text;
+  int count;
 
-  ForumPostEntry(
-      this.username, this.hours, this.likes, this.dislikes, this.text);
+  ForumPostEntry(this.username, this.hours, this.likes, this.dislikes,
+      this.text, this.count);
 
   @override
   Widget build(BuildContext context) {
+    int likkes = likes;
     return Container(
       margin: const EdgeInsets.all(5.0),
       decoration: const BoxDecoration(
@@ -266,15 +274,37 @@ class ForumPostEntry extends StatelessWidget {
                     ],
                   ),
                 ),
-                Row(
+                /*Row(
                   children: <Widget>[
-                    const Padding(
-                      padding: EdgeInsets.all(2.0),
-                      child: Icon(Icons.thumb_up),
+                    Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: const Color.fromARGB(255, 247, 227, 208),
+                          elevation: 2,
+                          onPrimary: const Color.fromARGB(255, 59, 41, 25),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                        ),
+                        child: const Icon(Icons.thumb_up),
+                        onPressed: () {
+                          likkes = 1 + likes;
+                          final docUser = FirebaseFirestore.instance
+                              .collection('post')
+                              .doc('classic_forum')
+                              .collection('1')
+                              .doc('0');
+
+                          docUser.update({
+                            'likes': likkes,
+                          });
+                        },
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.all(2.0),
-                      child: Text(likes.toString()),
+                      child: Text(likkes.toString()),
                     ),
                     const Padding(
                       padding: EdgeInsets.all(2.0),
@@ -285,7 +315,7 @@ class ForumPostEntry extends StatelessWidget {
                       child: Text(dislikes.toString()),
                     ),
                   ],
-                )
+                )*/
               ],
             ),
           ),

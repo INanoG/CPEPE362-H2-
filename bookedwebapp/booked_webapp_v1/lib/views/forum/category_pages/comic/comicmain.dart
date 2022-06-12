@@ -1,6 +1,7 @@
 import 'package:booked_webapp_v1/views/forum/category_pages/adaptation/adaptationmain.dart';
+import 'package:booked_webapp_v1/views/forum/category_pages/biography/biographymain.dart';
 import 'package:booked_webapp_v1/views/forum/category_pages/classic/classdisc1.dart';
-import 'package:booked_webapp_v1/views/forum/category_pages/comic/comicmain.dart';
+import 'package:booked_webapp_v1/views/forum/category_pages/comic/comic.dart';
 import 'package:booked_webapp_v1/views/forum/category_pages/fairytale/fairytalemain.dart';
 import 'package:booked_webapp_v1/views/forum/category_pages/fantasy/fantasymain.dart';
 import 'package:booked_webapp_v1/views/forum/category_pages/fiction/fictionmain.dart';
@@ -13,10 +14,11 @@ import 'package:booked_webapp_v1/views/forum/category_pages/poetry/poetrymain.da
 import 'package:booked_webapp_v1/views/forum/category_pages/romance/romancemain.dart';
 import 'package:booked_webapp_v1/views/forum/category_pages/shortStory/shortStorymain.dart';
 import 'package:booked_webapp_v1/views/forum/category_pages/textbook/textbookmain.dart';
+import 'package:booked_webapp_v1/views/forum/forum_view.dart';
 import 'package:flutter/material.dart';
 
-class ForumView extends StatelessWidget {
-  const ForumView({Key? key}) : super(key: key);
+class ComicView extends StatelessWidget {
+  const ComicView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,7 @@ class ForumView extends StatelessWidget {
                       ///classic
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: const Color.fromARGB(255, 145, 112, 82),
+                          primary: const Color.fromARGB(255, 247, 227, 208),
                           elevation: 2,
                           onPrimary: const Color.fromARGB(255, 59, 41, 25),
                           shape: RoundedRectangleBorder(
@@ -60,7 +62,14 @@ class ForumView extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 15),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ForumView(),
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(width: 10),
                       ////poetry
@@ -116,7 +125,7 @@ class ForumView extends StatelessWidget {
                       ////comic
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(
-                          primary: const Color.fromARGB(255, 247, 227, 208),
+                          primary: const Color.fromARGB(255, 145, 112, 82),
                           elevation: 2,
                           onPrimary: const Color.fromARGB(255, 59, 41, 25),
                           shape: RoundedRectangleBorder(
@@ -128,14 +137,7 @@ class ForumView extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 15),
                         ),
-                        onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ComicView(),
-                            ),
-                          );
-                        },
+                        onPressed: () {},
                       ),
                       const SizedBox(width: 10),
                       ////biography
@@ -153,7 +155,14 @@ class ForumView extends StatelessWidget {
                           textAlign: TextAlign.center,
                           style: TextStyle(fontSize: 15),
                         ),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const BiographyView(),
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(width: 10),
                       ////Fiction
@@ -471,7 +480,7 @@ class ForumView extends StatelessWidget {
               height: 20,
             ),
             const Text(
-              'Discussions for Classic Genre',
+              'Discussions for Comic Genre',
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 18,
@@ -592,7 +601,7 @@ class EntryItem extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => classicdisc1(entrynum: count),
+              builder: (context) => comicGenre(entrynum: count),
             ),
           );
         },
