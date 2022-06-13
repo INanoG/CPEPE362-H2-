@@ -80,19 +80,35 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                             AsyncSnapshot<String> snapshots) {
                           if (snapshots.connectionState ==
                               ConnectionState.done) {
-                            return Container(
-                              height: 190,
-                              width: 145,
-                              //child: Image.asset('assets/sample_prof.png'),
-                              //storage.downloadURL('${data['prof_url']}')
-                              child: Image.network(snapshots.data!.toString(),
-                                  fit: BoxFit.cover),
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: Colors.transparent,
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            );
+                            if (snapshots.data == null) {
+                              return Container(
+                                height: 190,
+                                width: 145,
+                                //child: Image.asset('assets/sample_prof.png'),
+                                //storage.downloadURL('${data['prof_url']}')
+                                child: Image.asset('assets/user_home.png',
+                                    fit: BoxFit.cover),
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              );
+                            } else {
+                              return Container(
+                                height: 190,
+                                width: 145,
+                                //child: Image.asset('assets/sample_prof.png'),
+                                //storage.downloadURL('${data['prof_url']}')
+                                child: Image.network(snapshots.data!.toString(),
+                                    fit: BoxFit.cover),
+                                alignment: Alignment.center,
+                                decoration: BoxDecoration(
+                                  color: Colors.transparent,
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                              );
+                            }
                           }
 
                           return Container();
@@ -178,7 +194,7 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                           ),*/
                         ],
                       ),
-                      Row(
+                      /*Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
@@ -203,7 +219,7 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                             textAlign: TextAlign.start,
                           ),
                         ],
-                      ),
+                      ),*/
                       const SizedBox(
                         height: 20,
                       ),

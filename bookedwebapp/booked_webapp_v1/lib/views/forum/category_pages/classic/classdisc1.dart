@@ -219,17 +219,6 @@ class _classicdisc1 extends State<classicdisc1> {
   }
 }
 
-/*class ForumPostEntry {
-  final String username;
-  final String hours;
-  final int likes;
-  final int dislikes;
-  final String text;
-
-  ForumPostEntry(
-      this.username, this.hours, this.likes, this.dislikes, this.text);
-}*/
-
 class ForumPostEntry extends StatelessWidget {
   final String username;
   final String hours;
@@ -274,48 +263,6 @@ class ForumPostEntry extends StatelessWidget {
                     ],
                   ),
                 ),
-                /*Row(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: ElevatedButton(
-                        style: ElevatedButton.styleFrom(
-                          primary: const Color.fromARGB(255, 247, 227, 208),
-                          elevation: 2,
-                          onPrimary: const Color.fromARGB(255, 59, 41, 25),
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5.0),
-                          ),
-                        ),
-                        child: const Icon(Icons.thumb_up),
-                        onPressed: () {
-                          likkes = 1 + likes;
-                          final docUser = FirebaseFirestore.instance
-                              .collection('post')
-                              .doc('classic_forum')
-                              .collection('1')
-                              .doc('0');
-
-                          docUser.update({
-                            'likes': likkes,
-                          });
-                        },
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Text(likkes.toString()),
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.all(2.0),
-                      child: Icon(Icons.thumb_down),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(right: 8.0, left: 2.0),
-                      child: Text(dislikes.toString()),
-                    ),
-                  ],
-                )*/
               ],
             ),
           ),

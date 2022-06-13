@@ -72,6 +72,7 @@ class NavigationBarTabletDesktopHome extends StatelessWidget {
   void onSelected(BuildContext context, Menu_Item item) {
     switch (item) {
       case MenuItems.itemReadingList:
+        locator<NavigationService>().navigateTo(ReadingListRoute);
         break;
       case MenuItems.itemSignOut:
         context.read<AuthService>().signOut();
