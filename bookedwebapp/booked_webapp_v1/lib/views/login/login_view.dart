@@ -137,12 +137,12 @@ class _LoginViewState extends State<LoginView> {
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.end,
                             children: const [
-                              Text(
+                              /*Text(
                                 'Forgot Password',
                                 style: TextStyle(
                                   color: Color.fromARGB(255, 139, 109, 82),
                                 ),
-                              ),
+                              ),*/
                             ],
                           ),
                         ),
