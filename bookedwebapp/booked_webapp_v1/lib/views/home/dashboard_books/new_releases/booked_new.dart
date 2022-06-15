@@ -67,11 +67,7 @@ class _booked_newState extends State<booked_new> {
   Widget build(BuildContext context) {
     /////
     var reviewPost = StreamBuilder(
-      stream: FirebaseFirestore.instance
-          .collection('review4New')
-          .doc(widget.booknum.toString())
-          .collection(widget.booknum.toString())
-          .snapshots(),
+      stream: FirebaseFirestore.instance.collection('review4New').snapshots(),
       builder: (BuildContext context,
           AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
         if (!snapshot.hasData) {
@@ -81,21 +77,43 @@ class _booked_newState extends State<booked_new> {
         }
 
         final data = snapshot.requireData;
-        commentcnt = data.docs.length + 1;
-        return Expanded(
-            //padding: const EdgeInsets.all(1.0),
+        //commentcnt = data.docs.length;
+        return Container(
+          height: 110,
+          width: 210,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: AutoSizeText.rich(
+            TextSpan(text: '${(data.docs[widget.booknum]['text'])}'),
+            style: const TextStyle(
+              height: 1.2,
+              fontSize: 17,
+              color: Color.fromARGB(255, 68, 53, 40),
+            ),
+            textAlign: TextAlign.center,
+            minFontSize: 10,
+            stepGranularity: 1,
+            maxLines: 28,
+            overflow: TextOverflow.ellipsis,
+          ),
+        );
+        /*Container(
+            padding: const EdgeInsets.all(1.0),
             child: ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: data.docs.length,
-          itemBuilder: (BuildContext context, int index) => ReviewPostEntry(
-              '${(data.docs[index]['username'])}',
-              '${(data.docs[index]['hours'])}',
-              (data.docs[index]['likes']),
-              (data.docs[index]['dislikes']),
-              '${(data.docs[index]['text'])}',
-              index),
-        ));
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: data.docs.length,
+              itemBuilder: (BuildContext context, int index) => ReviewPostEntry(
+                  '${(data.docs[index]['username'])}',
+                  '${(data.docs[index]['hours'])}',
+                  (data.docs[index]['likes']),
+                  (data.docs[index]['dislikes']),
+                  '${(data.docs[index]['text'])}',
+                  index),
+            ));*/
       },
     );
 
@@ -421,14 +439,10 @@ class _booked_newState extends State<booked_new> {
                                 onPressed: () {
                                   CollectionReference review = FirebaseFirestore
                                       .instance
-                                      .collection('review4New')
-                                      .doc(widget.booknum.toString())
-                                      .collection(widget.booknum.toString());
-                                  review.doc('$commentcnt').set({
+                                      .collection('review4New');
+                                  review.doc(widget.booknum.toString()).set({
                                     'username': userName,
                                     'text': comment.text.trim(),
-                                    'likes': 0,
-                                    'dislikes': 0,
                                     'hours': DateFormat("MMMM, dd, yyyy")
                                             .format(DateTime.now())
                                             .toString() +
@@ -453,12 +467,25 @@ class _booked_newState extends State<booked_new> {
                       const SizedBox(
                         height: 30,
                       ),
-                      /*Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 2.0),
-                          child: reviewPost,
+                      const Text(
+                        'Random Review',
+                        style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color.fromARGB(255, 68, 53, 40),
                         ),
-                      ),*/
+                        textAlign: TextAlign.start,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: reviewPost,
+                      ),
                     ],
                   ),
 

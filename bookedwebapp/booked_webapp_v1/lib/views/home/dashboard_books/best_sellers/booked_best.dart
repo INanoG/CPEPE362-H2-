@@ -60,12 +60,9 @@ class _booked_bestState extends State<booked_best> {
   @override
   Widget build(BuildContext context) {
     /////
+    int bookNumber = widget.booknum - 9;
     var reviewPost = StreamBuilder(
-      stream: FirebaseFirestore.instance
-          .collection('review4New')
-          .doc(widget.booknum.toString())
-          .collection(widget.booknum.toString())
-          .snapshots(),
+      stream: FirebaseFirestore.instance.collection('review4Best').snapshots(),
       builder: (BuildContext context,
           AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
         if (!snapshot.hasData) {
@@ -76,20 +73,42 @@ class _booked_bestState extends State<booked_best> {
 
         final data = snapshot.requireData;
         commentcnt = data.docs.length + 1;
-        return Expanded(
-            //padding: const EdgeInsets.all(1.0),
+        return Container(
+          height: 110,
+          width: 210,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: AutoSizeText.rich(
+            TextSpan(text: '${(data.docs[bookNumber]['text'])}'),
+            style: const TextStyle(
+              height: 1.2,
+              fontSize: 17,
+              color: Color.fromARGB(255, 68, 53, 40),
+            ),
+            textAlign: TextAlign.center,
+            minFontSize: 10,
+            stepGranularity: 1,
+            maxLines: 28,
+            overflow: TextOverflow.ellipsis,
+          ),
+        );
+        /*Container(
+            padding: const EdgeInsets.all(1.0),
             child: ListView.builder(
-          scrollDirection: Axis.vertical,
-          shrinkWrap: true,
-          itemCount: data.docs.length,
-          itemBuilder: (BuildContext context, int index) => ReviewPostEntry(
-              '${(data.docs[index]['username'])}',
-              '${(data.docs[index]['hours'])}',
-              (data.docs[index]['likes']),
-              (data.docs[index]['dislikes']),
-              '${(data.docs[index]['text'])}',
-              index),
-        ));
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
+              itemCount: data.docs.length,
+              itemBuilder: (BuildContext context, int index) => ReviewPostEntry(
+                  '${(data.docs[index]['username'])}',
+                  '${(data.docs[index]['hours'])}',
+                  (data.docs[index]['likes']),
+                  (data.docs[index]['dislikes']),
+                  '${(data.docs[index]['text'])}',
+                  index),
+            ));*/
       },
     );
 
@@ -117,8 +136,8 @@ class _booked_bestState extends State<booked_best> {
 
               final data = snapshot.requireData;
 
-              booktitle = '${(data.docs[widget.booknum]['title'])}';
-              bookauthor = '${(data.docs[widget.booknum]['author'])}';
+              booktitle = '${(data.docs[bookNumber]['title'])}';
+              bookauthor = '${(data.docs[bookNumber]['author'])}';
 
               return Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -133,7 +152,7 @@ class _booked_bestState extends State<booked_best> {
                         height: 365,
                         width: 320,
                         child: Image.asset(
-                            'assets/dashboard_books/booked_best_' +
+                            'assets/dashboard_books/booked_new_' +
                                 widget.booknum.toString() +
                                 '.jpg'),
                         alignment: Alignment.centerLeft,
@@ -227,18 +246,15 @@ class _booked_bestState extends State<booked_best> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          bookTagItems(
-                              '${(data.docs[widget.booknum]['tag1'])}'),
+                          bookTagItems('${(data.docs[bookNumber]['tag1'])}'),
                           const SizedBox(
                             width: 5,
                           ),
-                          bookTagItems(
-                              '${(data.docs[widget.booknum]['tag2'])}'),
+                          bookTagItems('${(data.docs[bookNumber]['tag2'])}'),
                           const SizedBox(
                             width: 5,
                           ),
-                          bookTagItems(
-                              '${(data.docs[widget.booknum]['tag3'])}'),
+                          bookTagItems('${(data.docs[bookNumber]['tag3'])}'),
                           const SizedBox(
                             width: 5,
                           ),
@@ -251,18 +267,15 @@ class _booked_bestState extends State<booked_best> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
-                          bookTagItems(
-                              '${(data.docs[widget.booknum]['tag4'])}'),
+                          bookTagItems('${(data.docs[bookNumber]['tag4'])}'),
                           const SizedBox(
                             width: 5,
                           ),
-                          bookTagItems(
-                              '${(data.docs[widget.booknum]['tag5'])}'),
+                          bookTagItems('${(data.docs[bookNumber]['tag5'])}'),
                           const SizedBox(
                             width: 5,
                           ),
-                          bookTagItems(
-                              '${(data.docs[widget.booknum]['tag6'])}'),
+                          bookTagItems('${(data.docs[bookNumber]['tag6'])}'),
                           const SizedBox(
                             width: 5,
                           ),
@@ -278,7 +291,7 @@ class _booked_bestState extends State<booked_best> {
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Text(
-                        '${(data.docs[widget.booknum]['title'])}',
+                        '${(data.docs[bookNumber]['title'])}',
                         style: const TextStyle(
                           height: 1.2,
                           fontWeight: FontWeight.bold,
@@ -293,7 +306,7 @@ class _booked_bestState extends State<booked_best> {
                       SizedBox(
                         height: 40,
                         child: Text(
-                          '${(data.docs[widget.booknum]['author'])}',
+                          '${(data.docs[bookNumber]['author'])}',
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             height: 1.2,
@@ -341,7 +354,7 @@ class _booked_bestState extends State<booked_best> {
                       SizedBox(
                         height: 15,
                         child: Text(
-                          'Published: ${(data.docs[widget.booknum]['pub_date'])}',
+                          'Published: ${(data.docs[bookNumber]['pub_date'])}',
                           style: const TextStyle(
                             fontWeight: FontWeight.w200,
                             height: 1.2,
@@ -395,7 +408,7 @@ class _booked_bestState extends State<booked_best> {
                               }
 
                               final data = snapshots.requireData;
-
+                              booknumber = widget.booknum - 9;
                               userName = '${data['userName']}';
 
                               return ElevatedButton(
@@ -415,14 +428,10 @@ class _booked_bestState extends State<booked_best> {
                                 onPressed: () {
                                   CollectionReference review = FirebaseFirestore
                                       .instance
-                                      .collection('review4New')
-                                      .doc(widget.booknum.toString())
-                                      .collection(widget.booknum.toString());
-                                  review.doc('$commentcnt').set({
+                                      .collection('review4Best');
+                                  review.doc(bookNumber.toString()).set({
                                     'username': userName,
                                     'text': comment.text.trim(),
-                                    'likes': 0,
-                                    'dislikes': 0,
                                     'hours': DateFormat("MMMM, dd, yyyy")
                                             .format(DateTime.now())
                                             .toString() +
@@ -447,12 +456,25 @@ class _booked_bestState extends State<booked_best> {
                       const SizedBox(
                         height: 30,
                       ),
-                      /*Expanded(
-                        child: Padding(
-                          padding: const EdgeInsets.only(bottom: 2.0),
-                          child: reviewPost,
+                      const Text(
+                        'Random Review',
+                        style: TextStyle(
+                          height: 1.2,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                          color: Color.fromARGB(255, 68, 53, 40),
                         ),
-                      ),*/
+                        textAlign: TextAlign.start,
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.transparent,
+                        ),
+                        child: reviewPost,
+                      ),
                     ],
                   ),
 
@@ -479,8 +501,7 @@ class _booked_bestState extends State<booked_best> {
                         width: 400,
                         child: AutoSizeText.rich(
                           TextSpan(
-                              text:
-                                  '${(data.docs[widget.booknum]['synopsis'])}'),
+                              text: '${(data.docs[bookNumber]['synopsis'])}'),
                           style: const TextStyle(
                             height: 1.2,
                             fontSize: 20,

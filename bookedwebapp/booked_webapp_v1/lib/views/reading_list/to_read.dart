@@ -43,6 +43,14 @@ class _ReadingListToReadState extends State<ReadingListToRead> {
 
         final data = snapshot.requireData;
         bookcount = data.docs.length + 1;
+
+        DocumentReference<Map<String, dynamic>> userupdate =
+            FirebaseFirestore.instance.collection('users').doc(userID);
+
+        userupdate.update({
+          'to_read': data.docs.length,
+        });
+
         return SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Container(

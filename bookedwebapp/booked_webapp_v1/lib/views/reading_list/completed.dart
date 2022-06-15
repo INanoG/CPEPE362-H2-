@@ -43,6 +43,14 @@ class _ReadingListCompletedState extends State<ReadingListCompleted> {
 
         final data = snapshot.requireData;
         bookcount = data.docs.length + 1;
+
+        DocumentReference<Map<String, dynamic>> userupdate =
+            FirebaseFirestore.instance.collection('users').doc(userID);
+
+        userupdate.update({
+          'finished_read': data.docs.length,
+        });
+
         return SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Container(
@@ -60,6 +68,13 @@ class _ReadingListCompletedState extends State<ReadingListCompleted> {
         );
       },
     );
+
+    DocumentReference<Map<String, dynamic>> userupdate =
+        FirebaseFirestore.instance.collection('users').doc(userID);
+
+    userupdate.update({
+      'finished_read': bookcount,
+    });
 
     return Scaffold(
       backgroundColor: Colors.transparent,

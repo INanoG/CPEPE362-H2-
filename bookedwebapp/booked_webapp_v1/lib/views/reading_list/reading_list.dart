@@ -18,6 +18,8 @@ class _ReadingListViewState extends State<ReadingListView> {
   String userID = FirebaseAuth.instance.currentUser!.uid;
   int bookcount = 0;
 
+  int readingcnt = 0;
+
   @override
   Widget build(BuildContext context) {
     /*ListView.builder(
@@ -43,6 +45,14 @@ class _ReadingListViewState extends State<ReadingListView> {
 
         final data = snapshot.requireData;
         bookcount = data.docs.length + 1;
+
+        DocumentReference<Map<String, dynamic>> userupdate =
+            FirebaseFirestore.instance.collection('users').doc(userID);
+
+        userupdate.update({
+          'current_read': data.docs.length,
+        });
+
         return SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Container(

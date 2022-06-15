@@ -40,6 +40,87 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
 
   @override
   Widget build(BuildContext context) {
+    ///
+    var readingbooks = StreamBuilder(
+      stream: FirebaseFirestore.instance
+          .collection('readinglist')
+          .doc(userID)
+          .collection('reading')
+          .snapshots(),
+      builder: (BuildContext context,
+          AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+        if (!snapshot.hasData) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
+        final data = snapshot.requireData;
+        //bookcount = data.docs.length + 1;
+
+        return Container(
+          color: Colors.transparent,
+          height: 200,
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: data.docs.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) => GestureDetector(
+              onTap: () {},
+              child: Container(
+                height: 140,
+                width: 110,
+                margin: const EdgeInsets.only(
+                    left: 10, right: 2, top: 2, bottom: 2),
+                child: Image.asset(
+                    'assets/dashboard_books/booked_new_${(data.docs[index]['booknumber'])}.jpg'),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+
+    var completedbooks = StreamBuilder(
+      stream: FirebaseFirestore.instance
+          .collection('readinglist')
+          .doc(userID)
+          .collection('completed')
+          .snapshots(),
+      builder: (BuildContext context,
+          AsyncSnapshot<QuerySnapshot<Map<String, dynamic>>> snapshot) {
+        if (!snapshot.hasData) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+
+        final data = snapshot.requireData;
+        //bookcount = data.docs.length + 1;
+
+        return Container(
+          color: Colors.transparent,
+          height: 200,
+          child: ListView.builder(
+            shrinkWrap: true,
+            itemCount: data.docs.length,
+            scrollDirection: Axis.horizontal,
+            itemBuilder: (context, index) => GestureDetector(
+              onTap: () {},
+              child: Container(
+                height: 140,
+                width: 110,
+                margin: const EdgeInsets.only(
+                    left: 10, right: 2, top: 2, bottom: 2),
+                child: Image.asset(
+                    'assets/dashboard_books/booked_new_${(data.docs[index]['booknumber'])}.jpg'),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
@@ -98,8 +179,6 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                               return Container(
                                 height: 190,
                                 width: 145,
-                                //child: Image.asset('assets/sample_prof.png'),
-                                //storage.downloadURL('${data['prof_url']}')
                                 child: Image.network(snapshots.data!.toString(),
                                     fit: BoxFit.cover),
                                 alignment: Alignment.center,
@@ -114,18 +193,6 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                           return Container();
                         },
                       ),
-                      /*Container(
-                        height: 190,
-                        width: 145,
-                        //child: Image.asset('assets/sample_prof.png'),
-                        //storage.downloadURL('${data['prof_url']}')
-                        child: Image.network(url),
-                        alignment: Alignment.center,
-                        decoration: BoxDecoration(
-                          color: Colors.transparent,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                      ),*/
                       const SizedBox(
                         height: 20,
                       ),
@@ -406,7 +473,7 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
+                      /*Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: const [
@@ -434,13 +501,13 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                             textAlign: TextAlign.start,
                           ),
                         ],
-                      ),
+                      ),*/
                       const SizedBox(
                         height: 20,
                       ),
                       Container(
                         height: 150,
-                        width: 500,
+                        width: 300,
                         decoration: const BoxDecoration(
                           color: Colors.transparent,
                         ),
@@ -469,33 +536,11 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        children: [
-                          Container(
-                            height: 150,
-                            width: 100,
-                            child: Image.asset(
-                                'assets/dashboard_books/booked_new_3.jpg'),
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          Container(
-                            height: 150,
-                            width: 100,
-                            child: Image.asset(
-                                'assets/dashboard_books/booked_new_4.jpg'),
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          Container(
-                            height: 150,
-                            width: 100,
-                            child: Image.asset(
-                                'assets/dashboard_books/booked_new_0.jpg'),
-                          ),
-                        ],
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: readingbooks,
                       ),
                       const SizedBox(
                         height: 30,
@@ -513,27 +558,11 @@ class _ProfileViewDesktopState extends State<ProfileViewDesktop> {
                       const SizedBox(
                         height: 10,
                       ),
-                      Row(
-                        children: [
-                          Container(
-                            height: 150,
-                            width: 100,
-                            child: Image.asset(
-                                'assets/dashboard_books/booked_best_6.jpg'),
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                          Container(
-                            height: 150,
-                            width: 100,
-                            child: Image.asset(
-                                'assets/dashboard_books/booked_best_7.jpg'),
-                          ),
-                          const SizedBox(
-                            width: 15,
-                          ),
-                        ],
+                      Container(
+                        decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(5)),
+                        child: completedbooks,
                       ),
                     ],
                   ),

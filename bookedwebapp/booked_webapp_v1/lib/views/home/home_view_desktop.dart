@@ -8,6 +8,7 @@ class HomeContentDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    int booknumbah;
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SingleChildScrollView(
@@ -75,7 +76,7 @@ class HomeContentDesktop extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => booked_best(
-                          booknum: index,
+                          booknum: 9 + index,
                         ),
                       ),
                     );
@@ -86,7 +87,7 @@ class HomeContentDesktop extends StatelessWidget {
                     margin: const EdgeInsets.only(
                         left: 40, right: 40, top: 20, bottom: 20),
                     child: Image.asset(
-                        'assets/dashboard_books/booked_best_$index.jpg'),
+                        'assets/dashboard_books/booked_new_${(index + 9)}.jpg'),
                   ),
                 ),
               ),
