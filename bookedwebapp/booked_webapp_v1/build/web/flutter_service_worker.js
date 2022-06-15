@@ -3,7 +3,7 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "ff9c5767e7ef826d3face6b2b0aab3bf",
+  "assets/AssetManifest.json": "ee1a9c92308cdfa692fa8b9be4a9da5b",
 "assets/assets/about_icons/about_icon1.png": "8e422081da5f176c121c4c8eb689faf9",
 "assets/assets/about_icons/about_icon2.png": "cacd2a4eb0cdf11eadb18cb22fd2463b",
 "assets/assets/about_icons/about_icon3.png": "5ab8ab322087e6fe7320ade2a669769f",
@@ -23,6 +23,14 @@ const RESOURCES = {
 "assets/assets/dashboard_books/booked_best_8.jpg": "62b42c4d07b3fe4ff642148131a0c6c9",
 "assets/assets/dashboard_books/booked_new_0.jpg": "d84a2c89eed7ba2da4f1c8cb641174dc",
 "assets/assets/dashboard_books/booked_new_1.jpg": "64968ca72480b9d54deead46d36a7c2a",
+"assets/assets/dashboard_books/booked_new_10.jpg": "7544655e5e97aae3ceaa0f447f3378d1",
+"assets/assets/dashboard_books/booked_new_11.jpg": "baae722b38ee64be959f737996032fc7",
+"assets/assets/dashboard_books/booked_new_12.jpg": "b3bb9ae25d7a1d7f949312eac2243b60",
+"assets/assets/dashboard_books/booked_new_13.jpg": "fa7aa6c9a3f06aff45b83ff72b75dec8",
+"assets/assets/dashboard_books/booked_new_14.jpg": "79265a028ca2ef8817270c8e96c3d5fb",
+"assets/assets/dashboard_books/booked_new_15.jpg": "f819ceaa39d6d53cb7fe92bd985ba122",
+"assets/assets/dashboard_books/booked_new_16.jpg": "f97144d8398290db39b21b56a71a5f85",
+"assets/assets/dashboard_books/booked_new_17.jpg": "62b42c4d07b3fe4ff642148131a0c6c9",
 "assets/assets/dashboard_books/booked_new_2.jpg": "f33d93e5d3b523482dc70a59b0be57fe",
 "assets/assets/dashboard_books/booked_new_3.jpg": "1388d112a023d2342c8c06ed70033d91",
 "assets/assets/dashboard_books/booked_new_4.jpg": "2eb25fa775215f8b61633b21783297ec",
@@ -30,6 +38,7 @@ const RESOURCES = {
 "assets/assets/dashboard_books/booked_new_6.jpg": "5a5269ba5af01834bcd37e6d001e7257",
 "assets/assets/dashboard_books/booked_new_7.jpg": "7ee266bcaeb8a9cf5bbc0e226df032e3",
 "assets/assets/dashboard_books/booked_new_8.jpg": "b41cb693c58f4ef5974e5205807aa51e",
+"assets/assets/dashboard_books/booked_new_9.jpg": "8bfbee90a999e47c7552292232a9a96f",
 "assets/assets/fonts/OpenSans-ExtraBold.ttf": "fb7e3a294cb07a54605a8bb27f0cd528",
 "assets/assets/fonts/OpenSans-Regular.ttf": "3ed9575dcc488c3e3a5bd66620bdf5a4",
 "assets/assets/logo.png": "695278b1e85158b250ad7bed12ffbaee",
@@ -37,14 +46,15 @@ const RESOURCES = {
 "assets/assets/user_home.png": "8c7bebf1de30bc9483b20a97044198c7",
 "assets/assets/welcomePic.png": "58f0e898e90c094214c8923373f79f93",
 "assets/FontManifest.json": "2a69ce04a1cd18341f63e2d3c53ed7ca",
-"assets/fonts/MaterialIcons-Regular.otf": "7e7a6cccddf6d7b20012a548461d5d81",
-"assets/NOTICES": "54a66049f80f88724e8de18abde0cad3",
+"assets/fonts/MaterialIcons-Regular.otf": "95db9098c58fd6db106f1116bae85a0b",
+"assets/NOTICES": "76ca8abcf721409a0c716ac8a64d0730",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "canvaskit/canvaskit.js": "c2b4e5f3d7a3d82aed024e7249a78487",
 "canvaskit/canvaskit.wasm": "4b83d89d9fecbea8ca46f2f760c5a9ba",
 "canvaskit/profiling/canvaskit.js": "ae2949af4efc61d28a4a80fffa1db900",
 "canvaskit/profiling/canvaskit.wasm": "95e736ab31147d1b2c7b25f11d4c32cd",
 "favicon.ico": "d34491984416fa5f5d7acc076fc2a2da",
+"flutter.js": "0816e65a103ba8ba51b174eeeeb2cb67",
 "icons/android-chrome-192x192.png": "ba486d07571933313d7b806ab92406b4",
 "icons/android-chrome-512x512.png": "92e42d165b0960515be75b8551115af8",
 "icons/apple-touch-icon.png": "89f1883491299d7ab847a9034167f204",
@@ -55,9 +65,9 @@ const RESOURCES = {
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "icons/Icon-maskable-192.png": "c457ef57daa1d16f64b27b786ec2ea3c",
 "icons/Icon-maskable-512.png": "301a7604d45b3e739efc881eb04896ea",
-"index.html": "f1aac2ae38fc775d5de3730d62eb6362",
-"/": "f1aac2ae38fc775d5de3730d62eb6362",
-"main.dart.js": "54c07dc98559e5af1a1a6faca74a19ef",
+"index.html": "65a2c70e669e4a516a4408727da3fd74",
+"/": "65a2c70e669e4a516a4408727da3fd74",
+"main.dart.js": "1f3de66980a7159bcfe57b903783b8ca",
 "manifest.json": "059ce24988984da9b02b39d11c582d4d",
 "version.json": "2865022b586925c671107d08c6de4913"
 };
@@ -65,8 +75,7 @@ const RESOURCES = {
 // The application shell files that are downloaded before a service worker can
 // start.
 const CORE = [
-  "/",
-"main.dart.js",
+  "main.dart.js",
 "index.html",
 "assets/NOTICES",
 "assets/AssetManifest.json",

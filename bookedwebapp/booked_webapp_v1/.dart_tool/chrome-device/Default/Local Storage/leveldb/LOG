@@ -1,19 +1,2 @@
-2022/06/10-22:17:45.886 3460 Reusing MANIFEST C:\Users\Computer\AppData\Local\Temp\flutter_tools.909eca5b\flutter_tools_chrome_device.fdade959\Default\Local Storage\leveldb/MANIFEST-000001
-2022/06/10-22:17:45.890 3460 Recovering log #33
-2022/06/10-22:17:45.892 3460 Reusing old log C:\Users\Computer\AppData\Local\Temp\flutter_tools.909eca5b\flutter_tools_chrome_device.fdade959\Default\Local Storage\leveldb/000033.log 
-2022/06/10-22:17:45.894 3460 Delete type=0 #3
-2022/06/10-22:17:45.894 3460 Delete type=0 #4
-2022/06/10-22:17:45.894 3460 Delete type=0 #5
-2022/06/10-22:17:45.894 3460 Delete type=0 #8
-2022/06/10-22:17:45.894 3460 Delete type=0 #9
-2022/06/10-22:17:45.894 3460 Delete type=0 #11
-2022/06/10-22:17:45.894 3460 Delete type=0 #14
-2022/06/10-22:17:45.920 3460 Delete type=2 #15
-2022/06/10-22:17:45.920 3460 Delete type=0 #17
-2022/06/10-22:17:45.920 3460 Delete type=2 #18
-2022/06/10-22:17:45.920 3460 Delete type=0 #20
-2022/06/10-22:17:45.920 3460 Delete type=2 #21
-2022/06/10-22:17:45.920 3460 Delete type=2 #23
-2022/06/10-22:17:45.920 3460 Delete type=0 #24
-2022/06/10-22:17:45.920 3460 Delete type=0 #26
-2022/06/10-22:17:45.920 3460 Delete type=0 #30
+2022/06/15-15:15:24.183 3580 Creating DB C:\Users\Computer\AppData\Local\Temp\flutter_tools.f29b014b\flutter_tools_chrome_device.4319d03b\Default\Local Storage\leveldb since it was missing.
+2022/06/15-15:15:24.208 3580 Reusing MANIFEST C:\Users\Computer\AppData\Local\Temp\flutter_tools.f29b014b\flutter_tools_chrome_device.4319d03b\Default\Local Storage\leveldb/MANIFEST-000001
