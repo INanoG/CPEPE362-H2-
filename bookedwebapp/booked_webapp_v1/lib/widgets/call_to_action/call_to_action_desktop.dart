@@ -18,7 +18,7 @@ class CallToActionTabletDesktop extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 60, vertical: 20),
       ),
       onPressed: () {
-        locator<NavigationService>().navigateTo(LoginRoute);
+        locator<NavigationService>().navigateTo(RegisterRoute);
       },
       child: Center(
         child: Text(

@@ -1,3 +1,27 @@
-2022/06/10-23:01:12.988 2a10 Reusing MANIFEST C:\Users\Computer\AppData\Local\Temp\flutter_tools.83932d9c\flutter_tools_chrome_device.64581ce8\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/MANIFEST-000001
-2022/06/10-23:01:12.989 2a10 Recovering log #40
-2022/06/10-23:01:12.990 2a10 Reusing old log C:\Users\Computer\AppData\Local\Temp\flutter_tools.83932d9c\flutter_tools_chrome_device.64581ce8\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/000040.log 
+2022/06/16-16:05:16.763 1c10 Reusing MANIFEST C:\Users\Computer\AppData\Local\Temp\flutter_tools.b65bee2c\flutter_tools_chrome_device.13ed9851\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/06/16-16:05:16.765 1c10 Recovering log #3
+2022/06/16-16:05:16.770 1c10 Level-0 table #3: started
+2022/06/16-16:05:16.779 1c10 Level-0 table #3: 109221 bytes OK
+2022/06/16-16:05:16.780 1c10 Recovering log #4
+2022/06/16-16:05:16.799 1c10 Level-0 table #4: started
+2022/06/16-16:05:16.846 1c10 Level-0 table #4: 1141714 bytes OK
+2022/06/16-16:05:16.848 1c10 Recovering log #7
+2022/06/16-16:05:16.875 1c10 Level-0 table #5: started
+2022/06/16-16:05:16.925 1c10 Level-0 table #5: 1257944 bytes OK
+2022/06/16-16:05:16.926 1c10 Recovering log #11
+2022/06/16-16:05:16.949 1c10 Level-0 table #8: started
+2022/06/16-16:05:17.005 1c10 Level-0 table #8: 1364531 bytes OK
+2022/06/16-16:05:17.006 1c10 Recovering log #20
+2022/06/16-16:05:17.017 1c10 Reusing old log C:\Users\Computer\AppData\Local\Temp\flutter_tools.b65bee2c\flutter_tools_chrome_device.13ed9851\Default\IndexedDB\https_ntp.msn.com_0.indexeddb.leveldb/000020.log 
+2022/06/16-16:05:17.020 1c10 Delete type=0 #3
+2022/06/16-16:05:17.020 1c10 Delete type=0 #4
+2022/06/16-16:05:17.020 1c10 Delete type=0 #7
+2022/06/16-16:05:17.020 1c10 Delete type=0 #11
+2022/06/16-16:05:17.025 16c0 Compacting 4@0 + 0@1 files
+2022/06/16-16:05:17.114 16c0 Generated table #21@0: 702 keys, 1022740 bytes
+2022/06/16-16:05:17.114 16c0 Compacted 4@0 + 0@1 files => 1022740 bytes
+2022/06/16-16:05:17.116 16c0 compacted to: files[ 0 1 0 0 0 0 0 ]
+2022/06/16-16:05:17.117 16c0 Delete type=2 #3
+2022/06/16-16:05:17.117 16c0 Delete type=2 #4
+2022/06/16-16:05:17.117 16c0 Delete type=2 #5
+2022/06/16-16:05:17.117 16c0 Delete type=2 #8

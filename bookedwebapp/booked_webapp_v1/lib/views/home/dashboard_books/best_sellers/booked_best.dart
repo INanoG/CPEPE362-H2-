@@ -553,6 +553,7 @@ class _booked_bestState extends State<booked_best> {
           'title': booktitle,
           'author': bookauthor,
           'booknumber': widget.booknum,
+          'rating': 1,
         });
 
         break;
@@ -566,6 +567,7 @@ class _booked_bestState extends State<booked_best> {
           'title': booktitle,
           'author': bookauthor,
           'booknumber': widget.booknum,
+          'rating': 1,
         });
         break;
       case DashboardItems.completed:
@@ -578,6 +580,7 @@ class _booked_bestState extends State<booked_best> {
           'title': booktitle,
           'author': bookauthor,
           'booknumber': widget.booknum,
+          'rating': 1,
         });
         break;
       default:

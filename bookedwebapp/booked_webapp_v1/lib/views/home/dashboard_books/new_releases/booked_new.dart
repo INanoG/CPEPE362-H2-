@@ -565,6 +565,7 @@ class _booked_newState extends State<booked_new> {
           'title': booktitle,
           'author': bookauthor,
           'booknumber': widget.booknum,
+          'rating': 1,
         });
 
         break;
@@ -578,6 +579,7 @@ class _booked_newState extends State<booked_new> {
           'title': booktitle,
           'author': bookauthor,
           'booknumber': widget.booknum,
+          'rating': 1,
         });
         break;
       case DashboardItems.completed:
@@ -590,6 +592,7 @@ class _booked_newState extends State<booked_new> {
           'title': booktitle,
           'author': bookauthor,
           'booknumber': widget.booknum,
+          'rating': 1,
         });
         break;
       default:

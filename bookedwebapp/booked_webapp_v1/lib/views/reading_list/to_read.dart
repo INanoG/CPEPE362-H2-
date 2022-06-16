@@ -62,6 +62,7 @@ class _ReadingListToReadState extends State<ReadingListToRead> {
                   '${(data.docs[index]['title'])}',
                   '${(data.docs[index]['author'])}',
                   (data.docs[index]['booknumber']),
+                  (data.docs[index]['rating']),
                   index),
             ),
           ),
@@ -93,7 +94,7 @@ class _ReadingListToReadState extends State<ReadingListToRead> {
                       "Reading",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Color.fromARGB(255, 41, 32, 8),
                           fontSize: 20),
                     )),
                 GestureDetector(
@@ -108,7 +109,7 @@ class _ReadingListToReadState extends State<ReadingListToRead> {
                       "Plan to Read",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Color.fromARGB(255, 41, 32, 8),
                           fontSize: 20),
                     )),
                 GestureDetector(
@@ -123,7 +124,7 @@ class _ReadingListToReadState extends State<ReadingListToRead> {
                       "Completed",
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: Color.fromARGB(255, 41, 32, 8),
                           fontSize: 20),
                     )),
                 const SizedBox(
@@ -149,8 +150,10 @@ class BookShow extends StatefulWidget {
   final String title;
   final String author;
   int booknumber;
+  double ratingcount;
   int count;
-  BookShow(this.title, this.author, this.booknumber, this.count);
+  BookShow(
+      this.title, this.author, this.booknumber, this.ratingcount, this.count);
 
   @override
   State<BookShow> createState() => _BookShowState();
@@ -207,12 +210,13 @@ class _BookShowState extends State<BookShow> {
                   width: 10,
                   height: 10,
                 ),
-                Text('Score: $ratingCnt', style: const TextStyle(fontSize: 15)),
+                Text('Score: ${(widget.ratingcount)}',
+                    style: const TextStyle(fontSize: 15)),
                 const SizedBox(
                   height: 5,
                 ),
                 RatingBar.builder(
-                  initialRating: 1,
+                  initialRating: widget.ratingcount,
                   minRating: 1,
                   itemSize: 30,
                   direction: Axis.horizontal,
@@ -221,10 +225,19 @@ class _BookShowState extends State<BookShow> {
                   itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
                   itemBuilder: (context, _) => const Icon(
                     Icons.star,
-                    color: Colors.amber,
+                    color: Color.fromARGB(255, 41, 32, 8),
                   ),
                   onRatingUpdate: (rating) => setState(() {
-                    ratingCnt = rating;
+                    widget.ratingcount = rating;
+                    CollectionReference ratingUpdate = FirebaseFirestore
+                        .instance
+                        .collection('readinglist')
+                        .doc(userID)
+                        .collection('to_read');
+
+                    ratingUpdate.doc(widget.booknumber.toString()).update({
+                      'rating': widget.ratingcount,
+                    });
                   }),
                 ),
                 const SizedBox(
@@ -262,6 +275,7 @@ class _BookShowState extends State<BookShow> {
                             'title': widget.title,
                             'author': widget.author,
                             'booknumber': widget.booknumber,
+                            'rating': widget.ratingcount,
                           });
 
                           CollectionReference deletelist = FirebaseFirestore
@@ -283,6 +297,7 @@ class _BookShowState extends State<BookShow> {
                             'title': widget.title,
                             'author': widget.author,
                             'booknumber': widget.booknumber,
+                            'rating': widget.ratingcount,
                           });
 
                           CollectionReference deletelist = FirebaseFirestore
